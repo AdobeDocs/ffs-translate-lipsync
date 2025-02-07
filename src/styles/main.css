@@ -1,0 +1,7 @@
+.adls-header>div>div {
+    width: 100%;
+}
+
+main>div>div>div>div:first-child>div:last-child>div>a {
+    display: none !important;
+}
