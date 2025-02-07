@@ -1,6 +1,6 @@
 ---
-title: Private Beta Overview
-description: This is the overview page for the current private beta
+title: Adobe Dubbing and Lip Sync (ADLS) Overview
+description: This is the overview page for the Adobe Dubbing and Lip Sync (ADLS) APIs.
 contributors:
   - https://github.com/fly0102030405
   - https://github.com/BaskarMitrah
@@ -10,17 +10,20 @@ import "../styles/main.css";
 
 <Hero slots="heading, text" background="rgb(233, 80, 80)" className="adls-header"/>
 
-# Adobe Dubbing and Lipsync (ADLS) Public Beta APIs
+# Adobe Dubbing and Lip Sync (ADLS) APIs
 
-An overview of the APIs currently available in public beta
+Use ADLS to translate and transcribe your source, and create audio or video from those transcriptions.
+
 ## Overview
 
-Welcome to the Dubbing & Lipsync API documentation. This documentation will guide you through:
+The Dubbing and Lip Sync (ADLS) API is a resource that allows you to translate and transcribe your source content, and then use those transcriptions to generate audio and video with precise, accurate dubbing and lip sync.
 
-**Transcribe API:** Generate accurate transcriptions in source or target language with the ability to download and edit transcripts. Integrate seamlessly with other APIs for a streamlined workflow.
+Current features offered with this API include:
 
-**Dub API:** Automate audio and video voice translation with optional lip-syncing, producing high-quality dubbing output regardless of background noise and music. Content Authenticity Initiative (CAI) support ensures content protection against deep fakes.
+- [**Transcribe API**](./api/index.md) - Generate accurate transcriptions in the source language or in another target language. You are able to download and edit these transcripts.
 
-**Lipsync API (included as a parameter in Dub):** Achieve precise lip-syncing with accurate lip composition on the speaker’s mouth, and create high-quality composited lip-sync videos. Supports multi-speaker scenarios for an enhanced user experience.
+- [**Dub API**](./api/index.md) - Use audio and video voice transriptions to produce high-quality dubs, regardless of background noise and music. [Content Authenticity Initiative (CAI)](http://contentauthenticity.org/) support ensures protection against deepfakes.
+  
+- **Lip Sync** is included as a parameter of the Dub API. Create high-quality composited videos with precise lip-syncing. This feature supports multi-speaker scenarios.
 
-Check out the [Getting Started Section](./guides/) to set up your project, obtain and authenticate your credentials, and build efficient workflows by chaining API calls across these endpoints. <br /> <br />
+[Check out the Getting Started page](./guides/) when you're ready to set up your project, obtain and authenticate your credentials, and learn to build efficient workflows by chaining API calls across these endpoints.
