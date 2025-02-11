@@ -11,7 +11,7 @@
  */
 
 module.exports = {
-  pathPrefix: process.env.PATH_PREFIX || '/adls-beta/',
+  pathPrefix: process.env.PATH_PREFIX || '/translate-lipsync/',
   siteMetadata: {
     pages: [
       {
