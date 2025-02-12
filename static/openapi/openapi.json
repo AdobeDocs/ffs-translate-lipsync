@@ -36,18 +36,19 @@
             "202" : {
               "description" : "Accepted",
               "content" : {
-                "application/json" : {
-                  "schema" : {
-                    "$ref" : "#/components/schemas/JobStatusLinkResponse"
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/JobStatusLinkResponse"
                   },
-                  "examples" : {
-                    "TranscribeResponse" : {
-                      "$ref" : "#/components/examples/JobStatusLinkResponse"
+                  "examples": {
+                    "TranscribeResponse": {
+                      "$ref": "#/components/examples/JobStatusLinkResponse"
                     }
                   }
                 }
               }
             }
+          }
         }
       }
     }
