@@ -1,9 +1,9 @@
 {
   "openapi" : "3.1.0",
   "info" : {
-    "version" : "1.0.0",
-    "title" : "Video API - Dubbing and Lipsync",
-    "description" : "REST API for Transcription, Dubbing and Lipsync for enterprise usage"
+    "version" : "",
+    "title" : "Dubbing and Lip Sync API",
+    "description" : "This RESTful API offers transcription, dubbing and lip sync resources for enterprise use. With this API a transcription can be generated (from audio or video input) and then used to dub new audio or video."
   },
   "servers" : [ {
     "url" : "https://audio-video-api.adobe.io",
@@ -19,11 +19,11 @@
   "paths" : {
     "/beta/transcribe" : {
       "post" : {
-        "summary" : "Transcribe media",
-        "description" : "Generates transcripts for the input audio or video.",
+        "summary" : "Transcribe audio or video",
+        "description" : "Generate a transcription from an audio or video input.",
         "operationId" : "transcribe",
         "requestBody" : {
-          "description" : "Transcribe request body.",
+          "description" : "The transcribe request body contains either an audio input or a video input to be transcribed.",
           "required" : true,
           "content" : {
             "application/json" : {
@@ -109,7 +109,7 @@
             }
           },
           "404" : {
-            "description" : "Resource not found",
+            "description" : "Resource Not Found",
             "content" : {
               "application/json" : {
                 "examples" : {
@@ -202,7 +202,7 @@
             }
           },
           "429" : {
-            "description" : "Too many requests",
+            "description" : "Too Many Requests",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -236,11 +236,11 @@
     },
     "/beta/dub" : {
       "post" : {
-        "summary" : "Perform dub on audio or video input",
-        "description" : "Generates dubbed video or audio for input media with/without lipsync.",
+        "summary" : "Dub audio or video",
+        "description" : "Generate dubbed video or audio.<br></br> A composited lip sync can be used for video dubbing.",
         "operationId" : "dub",
         "requestBody" : {
-          "description" : "Dub request body.",
+          "description" : "The dub request body is used to specify either an audio dubbing or a video dubbing.",
           "required" : true,
           "content" : {
             "application/json" : {
@@ -332,7 +332,7 @@
             }
           },
           "404" : {
-            "description" : "Resource not found",
+            "description" : "Resource Not Found",
             "content" : {
               "application/json" : {
                 "examples" : {
@@ -454,12 +454,12 @@
     "/beta/status/{jobId}" : {
       "get" : {
         "summary" : "Get the result for a job",
-        "description" : "Provides the result for an async dub or transcribe job.",
+        "description" : "Provides the result for an async dubbing or transcribe job.",
         "operationId" : "jobResult",
         "parameters" : [ {
           "name" : "jobId",
           "in" : "path",
-          "description" : "The job id to get status for an async dub or transcribe job",
+          "description" : "The job ID.",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -467,7 +467,7 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Successful response",
+            "description" : "Successful Response",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -666,17 +666,17 @@
       "AudioInputMediaType" : {
         "type" : "string",
         "enum" : [ "audio/mp3", "audio/mpeg", "audio/x-wav", "audio/wav", "audio/vnd.dlna.adts", "audio/aac" ],
-        "description" : "Supported audio media types"
+        "description" : "The audio media type of the input file. Use a supported type."
       },
       "VideoInputMediaType" : {
         "type" : "string",
         "enum" : [ "video/mp4", "video/quicktime", "video/mov" ],
-        "description" : "Supported Video media types"
+        "description" : "The video media type of the input file. Use a supported type."
       },
       "TranscriptInputLocale" : {
         "type" : "string",
         "enum" : [ "en-US", "es-ES", "de-DE", "fr-FR", "it-IT", "pt-PT" ],
-        "description" : "Supported locale codes."
+        "description" : "The languages that the transcript will be generated in. Use supported locale codes."
       },
       "DubTargetLocaleCodes" : {
         "type" : "string",
@@ -694,7 +694,7 @@
           }
         },
         "required" : [ "url", "mediaType" ],
-        "description" : "Audio Input details for transcribe or dub request."
+        "description" : "Audio input details for a transcribe or dub request."
       },
       "VideoInput" : {
         "type" : "object",
@@ -715,14 +715,14 @@
           }
         },
         "required" : [ "url", "mediaType" ],
-        "description" : "Video Input details for transcribe or dub request."
+        "description" : "The video input details for a transcribe or dub request."
       },
       "TranscriptInput" : {
         "type" : "object",
         "properties" : {
           "source" : {
             "$ref" : "#/components/schemas/Source",
-            "description" : "Pre-signed url to download the translated/edited transcripts."
+            "description" : "The pre-signed URL to download the translated/edited transcripts."
           },
           "localeCode" : {
             "$ref" : "#/components/schemas/TranscriptInputLocale"
@@ -754,7 +754,7 @@
           }
         },
         "required" : [ "audio" ],
-        "description" : "Transcribe audio request body parameter details."
+        "description" : "The request body for transcribing audio."
       },
       "TranscribeVideoInput" : {
         "type" : "object",
@@ -764,7 +764,7 @@
           }
         },
         "required" : [ "video" ],
-        "description" : "Transcribe video request body parameter details."
+        "description" : "The request body for transcribing video."
       },
       "Source" : {
         "type" : "object",
@@ -772,7 +772,7 @@
           "url" : {
             "type" : "string",
             "format" : "uri",
-            "description" : "The Pre-signed URL pointing to input source"
+            "description" : "The pre-signed URL pointing to the input source."
           }
         }
       },
@@ -781,7 +781,7 @@
         "properties" : {
           "url" : {
             "type" : "string",
-            "description" : "The Pre-signed URL ponting to output"
+            "description" : "The pre-signed URL pointing to the output source."
           }
         }
       },
@@ -792,7 +792,7 @@
         }, {
           "$ref" : "#/components/schemas/DubVideoRequest"
         } ],
-        "description" : "Dub request body."
+        "description" : "The dub request body."
       },
       "DubAudioRequest" : {
         "type" : "object",
@@ -815,7 +815,7 @@
           }
         },
         "required" : [ "audio" ],
-        "description" : "Dub audio request."
+        "description" : "The audio dub request body."
       },
       "DubVideoRequest" : {
         "type" : "object",
@@ -838,22 +838,23 @@
           },
           "lipSync" : {
             "type" : "boolean",
-            "description" : "Supported values: [true, false]. Defaults to false."
+            "description" : "If `true`, a high-quality composited lip sync will be used in the video output.",
+            "default" : "false"
           }
         },
         "required" : [ "video" ],
-        "description" : "Dub video request."
+        "description" : "The video dub request body."
       },
       "JobStatusLinkResponse" : {
         "type" : "object",
         "properties" : {
           "statusUrl" : {
             "type" : "string",
-            "description" : "URL for getting job results"
+            "description" : "URL to download the results of the job."
           },
           "jobId" : {
             "type" : "string",
-            "description" : "Associated job Id"
+            "description" : "The job ID."
           }
         },
         "required" : [ "statusUrl", "jobId" ],
@@ -882,7 +883,7 @@
           },
           "jobId" : {
             "type" : "string",
-            "description" : "Associated job Id"
+            "description" : "Associated job ID."
           },
           "outputs" : {
             "description" : "Job response details.",
@@ -907,30 +908,30 @@
           },
           "jobId" : {
             "type" : "string",
-            "description" : "Associated job Id"
+            "description" : "Associated job ID."
           },
           "message" : {
             "type" : "string",
-            "description" : "Error message"
+            "description" : "The error message."
           },
           "error_code" : {
             "type" : "string",
-            "description" : "Associated error code"
+            "description" : "Associated error code."
           }
         },
         "required" : [ "jobId", "status" ]
       },
       "ErrorBody" : {
         "type" : "object",
-        "description" : "Error response.",
+        "description" : " The error response object.",
         "properties" : {
           "message" : {
             "type" : "string",
-            "description" : "Error message"
+            "description" : "The error message."
           },
           "error_code" : {
             "type" : "string",
-            "description" : "Associated error code"
+            "description" : "Associated error code."
           }
         },
         "required" : [ "error_code", "message" ]
@@ -1020,29 +1021,29 @@
     },
     "examples" : {
       "JobStatusLinkResponse" : {
-        "summary" : "Success Submit Body",
+        "summary" : "Successful Submission",
         "value" : {
           "jobId" : "<jobId>",
           "statusUrl" : "https://<baseUrl>/beta/status/<jobId>"
         }
       },
       "AudioInputToGenerateTranscriptFromSourceAudio" : {
-        "summary" : "Generate transcript for Audio input",
+        "summary" : "Generate transcript for audio input",
         "value" : {
           "audio" : {
             "source" : {
-              "url" : "<pre-signed url for downloading the audio input>"
+              "url" : "<Pre-signed URL for the audio input>"
             },
             "mediaType" : "audio/mp3"
           }
         }
       },
       "AudioInputToGenerateTranscriptFromTargetLanguageAudio" : {
-        "summary" : "Generate transcript for Audio input in specified target languages",
+        "summary" : "Generate transcript for audio input in specified languages",
         "value" : {
           "audio" : {
             "source" : {
-              "url" : "<pre-signed url for downloading the audio input>"
+              "url" : "<Pre-signed URL for the audio input>"
             },
             "mediaType" : "audio/mp3"
           },
@@ -1050,22 +1051,22 @@
         }
       },
       "VideoInputToGenerateTranscriptFromSourceVideo" : {
-        "summary" : "Generate transcript for Video input",
+        "summary" : "Generate transcript for video input",
         "value" : {
           "video" : {
             "source" : {
-              "url" : "<pre-signed url for downloading the video input>"
+              "url" : "<Pre-signed URL for the video input>"
             },
             "mediaType" : "video/mp4"
           }
         }
       },
       "VideoInputToGenerateTranscriptFromTargetLanguageVideo" : {
-        "summary" : "Generate transcript for Video input in specified target languages",
+        "summary" : "Generate transcript for video input in specified languages",
         "value" : {
           "video" : {
             "source" : {
-              "url" : "<pre-signed url for downloading the video input>"
+              "url" : "<Pre-signed URL for the video input>"
             },
             "mediaType" : "video/mp4"
           },
@@ -1077,7 +1078,7 @@
         "value" : {
           "video" : {
             "source" : {
-              "url" : "<Pre-signed URL from which the video input should be read>"
+              "url" : "<Pre-signed URL for the video input>"
             },
             "mediaType" : "video/mp4"
           },
@@ -1090,7 +1091,7 @@
         "value" : {
           "audio" : {
             "source" : {
-              "url" : "<Pre-signed URL from which the audio input should be read>"
+              "url" : "<Pre-signed URL for the audio input>"
             },
             "mediaType" : "audio/mp3"
           },
@@ -1099,11 +1100,11 @@
         }
       },
       "DubRequestUsingEditedSourceTranscript" : {
-        "summary" : "Dubbing with edited transcript (Video)",
+        "summary" : "Dubbing with an edited transcript (Video)",
         "value" : {
           "video" : {
             "source" : {
-              "url" : "<Pre-signed URL from which the video input should be read>"
+              "url" : "<Pre-signed URL for the video input>"
             },
             "mediaType" : "video/mp4"
           },
@@ -1117,11 +1118,11 @@
         }
       },
       "DubRequestUsingAudioEditedSourceTranscript" : {
-        "summary" : "Dubbing with edited transcript (Audio)",
+        "summary" : "Dubbing with an edited transcript (Audio)",
         "value" : {
           "audio" : {
             "source" : {
-              "url" : "<Pre-signed URL from which the audio input should be read>"
+              "url" : "<Pre-signed URL for the audio input>"
             },
             "mediaType" : "audio/mp3"
           },
@@ -1139,18 +1140,18 @@
         "value" : {
           "video" : {
             "source" : {
-              "url" : "<Pre-signed URL from which the video input should be read>"
+              "url" : "<Pre-signed URL for the video input>"
             },
             "mediaType" : "video/mp4"
           },
           "transcripts" : [ {
             "source" : {
-              "url" : "<Pre-signed URL from which the translated input should be read>"
+              "url" : "<Pre-signed URL for the translated input>"
             },
             "localeCode" : "en-US"
           }, {
             "source" : {
-              "url" : "<Pre-signed URL from which the translated input should be read>"
+              "url" : "<Pre-signed URL for the translated input>"
             },
             "localeCode" : "fr-FR"
           } ],
@@ -1162,18 +1163,18 @@
         "value" : {
           "audio" : {
             "source" : {
-              "url" : "<Pre-signed URL from which the audio input should be read>"
+              "url" : "<Pre-signed URL for the audio input>"
             },
             "mediaType" : "audio/mp3"
           },
           "transcripts" : [ {
             "source" : {
-              "url" : "<Pre-signed URL from which the translated input should be read>"
+              "url" : "<Pre-signed URL for the translated input>"
             },
             "localeCode" : "en-US"
           }, {
             "source" : {
-              "url" : "<Pre-signed URL from which the translated input should be read>"
+              "url" : "<Pre-signed URL for the translated input>"
             },
             "localeCode" : "fr-FR"
           } ],
@@ -1187,17 +1188,17 @@
           "jobId" : "123e4567-e89b-12d3-a456-426614174002",
           "outputs" : [ {
             "destination" : {
-              "url" : "<URL from which the transcribed audio/video can be downloaded>"
+              "url" : "<URL where the transcribed audio/video can be downloaded>"
             },
             "localeCode" : "en-UK"
           }, {
             "destination" : {
-              "url" : "<URL from which the transcribed audio/video can be downloaded>"
+              "url" : "<URL where the transcribed audio/video can be downloaded>"
             },
             "localeCode" : "en-US"
           }, {
             "destination" : {
-              "url" : "<URL from which the transcribed audio/video can be downloaded>"
+              "url" : "<URL where the transcribed audio/video can be downloaded>"
             },
             "localeCode" : "en-Fr"
           } ]
@@ -1210,12 +1211,12 @@
           "jobId" : "123e4567-e89b-12d3-a456-426614174002",
           "outputs" : [ {
             "destination" : {
-              "url" : "<URL from which the transcribed audio/video can be downloaded>"
+              "url" : "<URL where the transcribed audio/video can be downloaded>"
             },
             "localeCode" : "en-UK"
           }, {
             "destination" : {
-              "url" : "<URL from which the transcribed audio/video can be downloaded>"
+              "url" : "<URL where the transcribed audio/video can be downloaded>"
             },
             "localeCode" : "en-US"
           }, {
@@ -1362,9 +1363,9 @@
         }
       },
       "ErrorBodyResourceNotFound" : {
-        "summary" : "Error Body Resource not found",
+        "summary" : "Error Body Resource Not Found",
         "value" : {
-          "error_code" : "unkown_job_id",
+          "error_code" : "unknown_job_id",
           "message" : "The requested resource 123e4567-e89b-12d3-a456-426614174002 was not found."
         }
       },
@@ -1376,7 +1377,7 @@
         }
       },
       "ErrorBodyTooManyRequests" : {
-        "summary" : "Error Body Too many requests",
+        "summary" : "Error Body Too Many Requests",
         "value" : {
           "message" : "Too Many Requests",
           "error_code" : "429011"
