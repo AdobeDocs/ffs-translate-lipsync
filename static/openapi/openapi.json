@@ -32,9 +32,7 @@
               }
             },
             "examples" : {
-              "AudioInputToGenerateTranscriptFromSourceAudio" : {
-                "$ref" : "#/components/examples/AudioInputToGenerateTranscriptFromSourceAudio"
-              }
+              
             }
           }
         }
