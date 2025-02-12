@@ -2,17 +2,12 @@
   "openapi": "3.1.0",
   "info": {
     "version": "1.0.0",
-    "title": "Video API - Dubbing and Lipsync",
-    "description": "REST API for Transcription, Dubbing and Lipsync for enterprise usage"
+    "title": "Firefly API",
+    "description": "REST API for Adobe Firefly for enterprise usage"
   },
   "servers": [
     {
-      "url": "https://audio-video-api.adobe.io",
-      "description": "Production environment"
-    },
-    {
-      "url": "https://audio-video-api-stage.adobe.io",
-      "description": "Staging environment"
+      "url": "https://firefly-beta.adobe.io"
     }
   ],
   "security": [
@@ -22,5 +17,7 @@
     {
       "X-Api-Key": []
     }
-  ]
+  ],
+  "paths": {
+  }
 }
