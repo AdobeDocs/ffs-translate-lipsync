@@ -26,7 +26,11 @@
           "description" : "The transcribe request body contains either an audio input or a video input to be transcribed.",
           "required" : true,
           "content" : {
-
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TranscribeRequest"
+              }
+            }
           }
         }
       }
