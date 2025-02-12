@@ -34,15 +34,6 @@
             "examples" : {
               "AudioInputToGenerateTranscriptFromSourceAudio" : {
                 "$ref" : "#/components/examples/AudioInputToGenerateTranscriptFromSourceAudio"
-              },
-              "AudioInputToGenerateTranscriptFromTargetLanguageAudio" : {
-                "$ref" : "#/components/examples/AudioInputToGenerateTranscriptFromTargetLanguageAudio"
-              },
-              "VideoInputToGenerateTranscriptFromSourceVideo" : {
-                "$ref" : "#/components/examples/VideoInputToGenerateTranscriptFromSourceVideo"
-              },
-              "VideoInputToGenerateTranscriptFromTargetLanguageVideo" : {
-                "$ref" : "#/components/examples/VideoInputToGenerateTranscriptFromTargetLanguageVideo"
               }
             }
           }
