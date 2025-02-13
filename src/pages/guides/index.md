@@ -1,3 +1,8 @@
+---
+title: Transcribe API Quickstart
+description: This page is a quickstart guide for the ADLS Transcribe API.
+---
+
 ## API Walkthrough
 
 Transcribe, Dubbing & LipSync APIs address the need for automated video translation and lip-syncing at scale.  This document provides a guide to use these Async APIs  for:
