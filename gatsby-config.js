@@ -20,7 +20,7 @@ module.exports = {
       },
       {
         title: 'Getting Started',
-        path: '/guides/'
+        path: '/start/'
       },
       {
         title: 'API References',
@@ -30,20 +30,20 @@ module.exports = {
     subPages: [
       {
         title: 'Getting Started',
-        path: '/guides/',
+        path: '/start/',
         header: true,
         pages: [
           {
             title: 'Authentication',
-            path: '/guides/'
+            path: '/start/'
           },
           {
             title: 'Getting Started with Video Services',
-            path: '/guides/video'
+            path: '/start/video'
           },
           {
             title: 'API Usage Notes',
-            path: '/guides/usage'
+            path: '/start/usage'
           },
         ]
       }
