@@ -63,16 +63,16 @@
               }
             }
           },
-          "404": {
-            "description": "Accepted",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/JobStatusLinkResponse"
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorBody"
                 },
-                "examples": {
-                  "TranscribeResponse": {
-                    "$ref": "#/components/examples/JobStatusLinkResponse"
+                "examples" : {
+                  "ErrorBodyBadRequest" : {
+                    "$ref" : "#/components/examples/ErrorBodyBadRequest"
                   }
                 }
               }
