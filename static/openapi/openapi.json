@@ -77,6 +77,36 @@
                 }
               }
             }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorBody"
+                },
+                "examples" : {
+                  "ErrorBodyUnauthorized" : {
+                    "$ref" : "#/components/examples/ErrorBodyUnauthorized"
+                  }
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorBody"
+                },
+                "examples" : {
+                  "ErrorBodyForbidden" : {
+                    "$ref" : "#/components/examples/ErrorBodyForbidden"
+                  }
+                }
+              }
+            }
           }
         }
       }
