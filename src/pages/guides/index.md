@@ -28,7 +28,7 @@ The required parameters are:
 
 * `client_id`: The client ID.
 * `client_secret`: The client secret.
-* `scope`: The option are `openid`, `AdobeID`, `firefly_enterprise`
+* `scope`: The scopes are `openid`, `AdobeID`, `firefly_enterprise`.
 
 The token endpoint also returns an expiry date and the token itself (when decoded) contains the expiry time.
 
