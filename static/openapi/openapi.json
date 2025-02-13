@@ -107,6 +107,33 @@
                 }
               }
             }
+          },
+          "404" : {
+            "description" : "Resource Not Found",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "ErrorBodyResourceNotFound" : {
+                    "$ref" : "#/components/examples/ErrorBodyResourceNotFound"
+                  }
+                }
+              }
+            }
+          },
+          "405" : {
+            "description" : "Method Not Allowed",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorBody"
+                },
+                "examples" : {
+                  "ErrorBodyMethodNotAllowed" : {
+                    "$ref" : "#/components/examples/ErrorBodyMethodNotAllowed"
+                  }
+                }
+              }
+            }
           }
         }
       }
