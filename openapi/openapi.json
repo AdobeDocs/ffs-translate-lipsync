@@ -186,7 +186,7 @@
                     "$ref" : "#/components/examples/ValidationErrorUnsupportedTargetLocaleCode"
                   },
                   "ValidationErrorBlankTargetLocaleCode" : {
-                    "$ref" : "#/components/examples/ValidationErrorBlankTargetLocaleCode                       "
+                    "$ref" : "#/components/examples/ValidationErrorBlankTargetLocaleCode"
                   },
                   "ValidationErrorMissingTargetLocaleCode" : {
                     "$ref" : "#/components/examples/ValidationErrorMissingTargetLocaleCode"
@@ -195,7 +195,7 @@
                     "$ref" : "#/components/examples/ValidationErrorLocaleCodeNotRequiredForEditedTranscript"
                   },
                   "ValidationErrorEitherTargetLocaleCodesOrTranscriptionRequired" : {
-                    "$ref" : "#/components/examples/ValidationErrorEitherTargetLocaleCodesOrTranscriptionRequired                 "
+                    "$ref" : "#/components/examples/ValidationErrorEitherTargetLocaleCodesOrTranscriptionRequired"
                   }
                 }
               }
