@@ -58,7 +58,7 @@ Technical details for videos used as input:
 - **FPS:** 24 fps, 25 fps, 29.97, 30, 50, 59.94, 60
 - **Resolution (max):** Full HD `1,920*1,080px` or `1080*1920px`
 - **CODEC**: `H.264`
-- **Formats/container:** `.mp4, .mp3, .wav `
+- **Formats/container:** `.mp4, .mp3, .wav`
 - **Input medium:** Pre-signed URL
 - **Render time:** 2x the video length (for 30 fps and 1080 resolution) if `lipSync` is enabled
 - **Speaker speech (min):** 5 secs
