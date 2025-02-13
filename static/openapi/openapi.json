@@ -41,9 +41,7 @@
                     "$ref": "#/components/schemas/JobStatusLinkResponse"
                   },
                   "examples": {
-                    "TranscribeResponse": {
-                      "$ref": "#/components/examples/JobStatusLinkResponse"
-                    }
+
                   }
                 }
               }
