@@ -2,8 +2,8 @@
   "openapi" : "3.1.0",
   "info" : {
     "version" : "1.0.0",
-    "title" : "Video API - Dubbing and Lipsync",
-    "description" : "REST API for Transcription, Dubbing and Lipsync for enterprise usage"
+    "title" : "Dubbing and Lip Sync API",
+    "description" : "This RESTful API offers transcription, dubbing and lip sync resources for enterprise use. With this API a transcription can be generated (from audio or video input) and then used to dub new audio or video."
   },
   "servers" : [ {
     "url" : "https://audio-video-api.adobe.io",
