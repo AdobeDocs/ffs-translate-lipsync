@@ -740,7 +740,7 @@
         } ],
         "properties" : {
           "targetLocaleCodes" : {
-            "type" : "array",
+            "type" : "string",
             "$ref" : "#/components/schemas/TranscriptInputLocale"
           }
         },
