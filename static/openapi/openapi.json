@@ -23,26 +23,26 @@
         "description" : "Generates transcripts for the input audio or video.",
         "operationId" : "transcribe",
         "requestBody" : {
-          "description" : "The transcribe request body contains either an audio input or a video input to be transcribed.",
-          "required" : true,
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/TranscribeRequest"
+          "description": "The transcribe request body contains either an audio input or a video input to be transcribed.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TranscribeRequest"
               }
             }
-          },
-          "responses" : {
-            "202" : {
-              "description" : "Accepted",
-              "content" : {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/JobStatusLinkResponse"
-                  },
-                  "examples": {
+          }
+        },
+        "responses" : {
+          "202" : {
+            "description" : "Accepted",
+            "content" : {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobStatusLinkResponse"
+                },
+                "examples": {
 
-                  }
                 }
               }
             }
