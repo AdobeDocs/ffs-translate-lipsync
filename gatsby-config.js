@@ -43,7 +43,7 @@ module.exports = {
           },
           {
             title: 'Storage Solutions',
-            path: '/getting_started/video'
+            path: '/getting_started/storage_solutions'
           },
           {
             title: 'API Usage Notes',
