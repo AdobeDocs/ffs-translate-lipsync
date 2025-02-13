@@ -48,7 +48,7 @@
           }
         },
         "responses" : {
-          "202" : {
+          ["202" : {
             "description" : "Accepted",
             "content" : {
               "application/json": {
@@ -230,7 +230,7 @@
                 }
               }
             }
-          }
+          }]
         }
       }
     }
