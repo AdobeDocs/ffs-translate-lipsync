@@ -18,11 +18,11 @@
   } ],
   "paths" : {
     "/beta/transcribe" : {
-      "post" : {
-        "summary" : "Transcribe media",
-        "description" : "Generates transcripts for the input audio or video.",
-        "operationId" : "transcribe",
-        "requestBody" : {
+      "post": {
+        "summary": "Transcribe media",
+        "description": "Generates transcripts for the input audio or video.",
+        "operationId": "transcribe",
+        "requestBody": {
           "description": "The transcribe request body contains either an audio input or a video input to be transcribed.",
           "required": true,
           "content": {
@@ -30,24 +30,24 @@
               "schema": {
                 "$ref": "#/components/schemas/TranscribeRequest"
               },
-              "examples" : {
-                "AudioInputToGenerateTranscriptFromSourceAudio" : {
-                  "$ref" : "#/components/examples/AudioInputToGenerateTranscriptFromSourceAudio"
+              "examples": {
+                "AudioInputToGenerateTranscriptFromSourceAudio": {
+                  "$ref": "#/components/examples/AudioInputToGenerateTranscriptFromSourceAudio"
                 },
-                "AudioInputToGenerateTranscriptFromTargetLanguageAudio" : {
-                  "$ref" : "#/components/examples/AudioInputToGenerateTranscriptFromTargetLanguageAudio"
+                "AudioInputToGenerateTranscriptFromTargetLanguageAudio": {
+                  "$ref": "#/components/examples/AudioInputToGenerateTranscriptFromTargetLanguageAudio"
                 },
-                "VideoInputToGenerateTranscriptFromSourceVideo" : {
-                  "$ref" : "#/components/examples/VideoInputToGenerateTranscriptFromSourceVideo"
+                "VideoInputToGenerateTranscriptFromSourceVideo": {
+                  "$ref": "#/components/examples/VideoInputToGenerateTranscriptFromSourceVideo"
                 },
-                "VideoInputToGenerateTranscriptFromTargetLanguageVideo" : {
-                  "$ref" : "#/components/examples/VideoInputToGenerateTranscriptFromTargetLanguageVideo"
+                "VideoInputToGenerateTranscriptFromTargetLanguageVideo": {
+                  "$ref": "#/components/examples/VideoInputToGenerateTranscriptFromTargetLanguageVideo"
                 }
               }
             }
           }
         },
-        "responses" : {
+        "responses": {
           "202": {
             "description": "Accepted",
             "content": {
@@ -63,16 +63,494 @@
               }
             }
           },
-          "400" : {
-            "description" : "Bad Request",
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "examples": {
+                  "ErrorBodyBadRequest": {
+                    "$ref": "#/components/examples/ErrorBodyBadRequest"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "examples": {
+                  "ErrorBodyUnauthorized": {
+                    "$ref": "#/components/examples/ErrorBodyUnauthorized"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "examples": {
+                  "ErrorBodyForbidden": {
+                    "$ref": "#/components/examples/ErrorBodyForbidden"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource Not Found",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "ErrorBodyResourceNotFound": {
+                    "$ref": "#/components/examples/ErrorBodyResourceNotFound"
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "examples": {
+                  "ErrorBodyMethodNotAllowed": {
+                    "$ref": "#/components/examples/ErrorBodyMethodNotAllowed"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "examples": {
+                  "ErrorBodyMethodNotAllowed": {
+                    "$ref": "#/components/examples/ErrorBodyMethodNotAllowed"
+                  },
+                  "ValidationErrorVideoSourceBlank": {
+                    "$ref": "#/components/examples/ValidationErrorVideoSourceBlank"
+                  },
+                  "ValidationErrorAudioSourceBlank": {
+                    "$ref": "#/components/examples/ValidationErrorAudioSourceBlank"
+                  },
+                  "ValidationErrorInputSourceBlank": {
+                    "$ref": "#/components/examples/ValidationErrorInputSourceBlank"
+                  },
+                  "ValidationErrorVideoAndAudioSimultaneous": {
+                    "$ref": "#/components/examples/ValidationErrorVideoAndAudioSimultaneous"
+                  },
+                  "ValidationErrorVideoInputMediaTypeMissing": {
+                    "$ref": "#/components/examples/ValidationErrorVideoInputMediaTypeMissing"
+                  },
+                  "ValidationErrorAudioInputMediaTypeMissing": {
+                    "$ref": "#/components/examples/ValidationErrorAudioInputMediaTypeMissing"
+                  },
+                  "ValidationErrorSourceUrlEmpty": {
+                    "$ref": "#/components/examples/ValidationErrorSourceUrlEmpty"
+                  },
+                  "ValidationErrorInvalidVideoAudioSourceUrl": {
+                    "$ref": "#/components/examples/ValidationErrorInvalidVideoAudioSourceUrl"
+                  },
+                  "ValidationErrorBlankTranscriptSourceField": {
+                    "$ref": "#/components/examples/ValidationErrorBlankTranscriptSourceField"
+                  },
+                  "ValidationErrorInvalidTranscriptUrl": {
+                    "$ref": "#/components/examples/ValidationErrorInvalidTranscriptUrl"
+                  },
+                  "ValidationErrorUnsupportedVideoMediaType": {
+                    "$ref": "#/components/examples/ValidationErrorUnsupportedVideoMediaType"
+                  },
+                  "ValidationErrorUnsupportedAudioMediaType": {
+                    "$ref": "#/components/examples/ValidationErrorUnsupportedAudioMediaType"
+                  },
+                  "ValidationErrorUnsupportedTargetLocaleCode": {
+                    "$ref": "#/components/examples/ValidationErrorUnsupportedTargetLocaleCode"
+                  },
+                  "ValidationErrorBlankTargetLocaleCode": {
+                    "$ref": "#/components/examples/ValidationErrorBlankTargetLocaleCode"
+                  },
+                  "ValidationErrorMissingTargetLocaleCode": {
+                    "$ref": "#/components/examples/ValidationErrorMissingTargetLocaleCode"
+                  },
+                  "ValidationErrorLocaleCodeNotRequiredForEditedTranscript": {
+                    "$ref": "#/components/examples/ValidationErrorLocaleCodeNotRequiredForEditedTranscript"
+                  },
+                  "ValidationErrorEitherTargetLocaleCodesOrTranscriptionRequired": {
+                    "$ref": "#/components/examples/ValidationErrorEitherTargetLocaleCodesOrTranscriptionRequired"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "examples": {
+                  "ErrorBodyTooManyRequests": {
+                    "$ref": "#/components/examples/ErrorBodyTooManyRequests"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "examples": {
+                  "ErrorBodyInternalServerError": {
+                    "$ref": "#/components/examples/ErrorBodyInternalServerError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/beta/dub" : {
+      "post": {
+        "summary": "Dub audio or video",
+        "description": "Generate dubbed video or audio.<br></br> A composited lip sync can be used for video dubbing.",
+        "operationId": "dub",
+        "requestBody": {
+          "description": "The dub request body is used to specify either an audio dubbing or a video dubbing.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DubRequest"
+              },
+              "examples": {
+                "DubRequestUsingAutoTranslatedTranscripts": {
+                  "$ref": "#/components/examples/DubRequestUsingAutoTranslatedTranscripts"
+                },
+                "DubRequestUsingAudioAutoTranslatedTranscripts": {
+                  "$ref": "#/components/examples/DubRequestUsingAudioAutoTranslatedTranscripts"
+                },
+                "DubRequestUsingEditedSourceTranscript": {
+                  "$ref": "#/components/examples/DubRequestUsingEditedSourceTranscript"
+                },
+                "DubRequestUsingAudioEditedSourceTranscript": {
+                  "$ref": "#/components/examples/DubRequestUsingAudioEditedSourceTranscript"
+                },
+                "DubRequestUsingEditedTranslatedTranscript": {
+                  "$ref": "#/components/examples/DubRequestUsingEditedTranslatedTranscript"
+                },
+                "DubRequestUsingAudioEditedTranslatedTranscript": {
+                  "$ref": "#/components/examples/DubRequestUsingAudioEditedTranslatedTranscript"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobStatusLinkResponse"
+                },
+                "examples": {
+                  "DubResponse": {
+                    "$ref": "#/components/examples/JobStatusLinkResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "examples": {
+                  "ErrorBodyBadRequest": {
+                    "$ref": "#/components/examples/ErrorBodyBadRequest"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "examples": {
+                  "ErrorBodyUnauthorized": {
+                    "$ref": "#/components/examples/ErrorBodyUnauthorized"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "examples": {
+                  "ErrorBodyForbidden": {
+                    "$ref": "#/components/examples/ErrorBodyForbidden"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource Not Found",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "ErrorBodyResourceNotFound": {
+                    "$ref": "#/components/examples/ErrorBodyResourceNotFound"
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "examples": {
+                  "ErrorBodyMethodNotAllowed": {
+                    "$ref": "#/components/examples/ErrorBodyMethodNotAllowed"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "examples": {
+                  "ErrorBodyMethodNotAllowed": {
+                    "$ref": "#/components/examples/ErrorBodyMethodNotAllowed"
+                  },
+                  "ValidationErrorVideoSourceBlank": {
+                    "$ref": "#/components/examples/ValidationErrorVideoSourceBlank"
+                  },
+                  "ValidationErrorAudioSourceBlank": {
+                    "$ref": "#/components/examples/ValidationErrorAudioSourceBlank"
+                  },
+                  "ValidationErrorInputSourceBlank": {
+                    "$ref": "#/components/examples/ValidationErrorInputSourceBlank"
+                  },
+                  "ValidationErrorVideoAndAudioSimultaneous": {
+                    "$ref": "#/components/examples/ValidationErrorVideoAndAudioSimultaneous"
+                  },
+                  "ValidationErrorVideoInputMediaTypeMissing": {
+                    "$ref": "#/components/examples/ValidationErrorVideoInputMediaTypeMissing"
+                  },
+                  "ValidationErrorAudioInputMediaTypeMissing": {
+                    "$ref": "#/components/examples/ValidationErrorAudioInputMediaTypeMissing"
+                  },
+                  "ValidationErrorSourceUrlEmpty": {
+                    "$ref": "#/components/examples/ValidationErrorSourceUrlEmpty"
+                  },
+                  "ValidationErrorInvalidVideoAudioSourceUrl": {
+                    "$ref": "#/components/examples/ValidationErrorInvalidVideoAudioSourceUrl"
+                  },
+                  "ValidationErrorInvalidTranscriptUrl": {
+                    "$ref": "#/components/examples/ValidationErrorInvalidTranscriptUrl"
+                  },
+                  "ValidationErrorUnsupportedVideoMediaType": {
+                    "$ref": "#/components/examples/ValidationErrorUnsupportedVideoMediaType"
+                  },
+                  "ValidationErrorUnsupportedAudioMediaType": {
+                    "$ref": "#/components/examples/ValidationErrorUnsupportedAudioMediaType"
+                  },
+                  "ValidationErrorUnsupportedTargetLocaleCode": {
+                    "$ref": "#/components/examples/ValidationErrorUnsupportedTargetLocaleCode"
+                  },
+                  "ValidationErrorMissingTargetLocaleCode": {
+                    "$ref": "#/components/examples/ValidationErrorMissingTargetLocaleCode"
+                  },
+                  "ValidationErrorLocaleCodeNotRequiredForEditedTranscript": {
+                    "$ref": "#/components/examples/ValidationErrorLocaleCodeNotRequiredForEditedTranscript"
+                  },
+                  "ValidationErrorEitherTargetLocaleCodesOrTranscriptionRequired": {
+                    "$ref": "#/components/examples/ValidationErrorEitherTargetLocaleCodesOrTranscriptionRequired"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "examples": {
+                  "ErrorBodyTooManyRequests": {
+                    "$ref": "#/components/examples/ErrorBodyTooManyRequests"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "examples": {
+                  "ErrorBodyInternalServerError": {
+                    "$ref": "#/components/examples/ErrorBodyInternalServerError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/beta/status/{jobId}" : {
+      "get" : {
+        "summary" : "Get the result for a job",
+        "description" : "Provides the result for an async dubbing or transcribe job.",
+        "operationId" : "jobResult",
+        "parameters" : [ {
+          "name" : "jobId",
+          "in" : "path",
+          "description" : "The job ID.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful Response",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ErrorBody"
+                  "$ref" : "#/components/schemas/FireflyJobResponse"
                 },
                 "examples" : {
-                  "ErrorBodyBadRequest" : {
-                    "$ref" : "#/components/examples/ErrorBodyBadRequest"
+                  "TranscribeJobSucceeded" : {
+                    "$ref" : "#/components/examples/TranscribeJobSucceeded"
+                  },
+                  "TranscribeJobPartiallySucceeded" : {
+                    "$ref" : "#/components/examples/TranscribeJobPartiallySucceeded"
+                  },
+                  "DubJobSucceeded" : {
+                    "$ref" : "#/components/examples/DubJobSucceeded"
+                  },
+                  "DubJobPartiallySucceeded" : {
+                    "$ref" : "#/components/examples/DubJobPartiallySucceeded"
+                  },
+                  "JobFailed" : {
+                    "$ref" : "#/components/examples/JobFailed"
+                  },
+                  "JobIsStillRunning" : {
+                    "$ref" : "#/components/examples/JobIsStillRunning"
+                  },
+                  "JobIsInPendingState" : {
+                    "$ref" : "#/components/examples/JobIsInPendingState"
+                  },
+                  "Access_error" : {
+                    "$ref" : "#/components/examples/Access_error"
+                  },
+                  "ValidationError_AudioVideo_Required" : {
+                    "$ref" : "#/components/examples/ValidationError_AudioVideo_Required"
+                  },
+                  "ValidationErrorTargetOrTranscripts" : {
+                    "$ref" : "#/components/examples/ValidationErrorTargetOrTranscripts"
+                  },
+                  "ValidationErrorMissingLocale" : {
+                    "$ref" : "#/components/examples/ValidationErrorMissingLocale"
+                  },
+                  "LanguageNotSupported" : {
+                    "$ref" : "#/components/examples/LanguageNotSupported"
+                  },
+                  "AudioSpeechNotDetectedSingle" : {
+                    "$ref" : "#/components/examples/AudioSpeechNotDetectedSingle"
+                  },
+                  "ValidationErrorRedubbing" : {
+                    "$ref" : "#/components/examples/ValidationErrorRedubbing"
+                  },
+                  "ValidationErrorProprietaryContent" : {
+                    "$ref" : "#/components/examples/ValidationErrorProprietaryContent"
+                  },
+                  "ValidationErrorUnrecognizedLanguage" : {
+                    "$ref" : "#/components/examples/ValidationErrorUnrecognizedLanguage"
+                  },
+                  "AudioSpeechNotDetectedMulti" : {
+                    "$ref" : "#/components/examples/AudioSpeechNotDetectedMulti"
+                  },
+                  "ValidationErrorDialogTrackNumber" : {
+                    "$ref" : "#/components/examples/ValidationErrorDialogTrackNumber"
+                  },
+                  "ValidationErrorDownloadFailure" : {
+                    "$ref" : "#/components/examples/ValidationErrorDownloadFailure"
+                  },
+                  "VideoNotDetected" : {
+                    "$ref" : "#/components/examples/VideoNotDetected"
+                  },
+                  "AudioNotDetectedUnsupported" : {
+                    "$ref" : "#/components/examples/AudioNotDetectedUnsupported"
+                  },
+                  "ValidationErrorVideoDuration" : {
+                    "$ref" : "#/components/examples/ValidationErrorVideoDuration"
+                  },
+                  "InputMediaIndecipherableFaces" : {
+                    "$ref" : "#/components/examples/InputMediaIndecipherableFaces"
+                  },
+                  "ValidationErrorCodecUnsupported" : {
+                    "$ref" : "#/components/examples/ValidationErrorCodecUnsupported"
+                  },
+                  "ValidationErrorMaxSupportedResolution" : {
+                    "$ref" : "#/components/examples/ValidationErrorMaxSupportedResolution"
+                  },
+                  "ValidationErrorInvalidMediaProvided" : {
+                    "$ref" : "#/components/examples/ValidationErrorInvalidMediaProvided"
                   }
                 }
               }
@@ -109,7 +587,7 @@
             }
           },
           "404" : {
-            "description" : "Resource Not Found",
+            "description" : "Resource not found",
             "content" : {
               "application/json" : {
                 "examples" : {
@@ -135,74 +613,8 @@
               }
             }
           },
-          "422" : {
-            "description" : "Unprocessable Entity",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ErrorBody"
-                },
-                "examples" : {
-                  "ErrorBodyMethodNotAllowed" : {
-                    "$ref" : "#/components/examples/ErrorBodyMethodNotAllowed"
-                  },
-                  "ValidationErrorVideoSourceBlank" : {
-                    "$ref" : "#/components/examples/ValidationErrorVideoSourceBlank"
-                  },
-                  "ValidationErrorAudioSourceBlank" : {
-                    "$ref" : "#/components/examples/ValidationErrorAudioSourceBlank"
-                  },
-                  "ValidationErrorInputSourceBlank" : {
-                    "$ref" : "#/components/examples/ValidationErrorInputSourceBlank"
-                  },
-                  "ValidationErrorVideoAndAudioSimultaneous" : {
-                    "$ref" : "#/components/examples/ValidationErrorVideoAndAudioSimultaneous"
-                  },
-                  "ValidationErrorVideoInputMediaTypeMissing" : {
-                    "$ref" : "#/components/examples/ValidationErrorVideoInputMediaTypeMissing"
-                  },
-                  "ValidationErrorAudioInputMediaTypeMissing" : {
-                    "$ref" : "#/components/examples/ValidationErrorAudioInputMediaTypeMissing"
-                  },
-                  "ValidationErrorSourceUrlEmpty" : {
-                    "$ref" : "#/components/examples/ValidationErrorSourceUrlEmpty"
-                  },
-                  "ValidationErrorInvalidVideoAudioSourceUrl" : {
-                    "$ref" : "#/components/examples/ValidationErrorInvalidVideoAudioSourceUrl"
-                  },
-                  "ValidationErrorBlankTranscriptSourceField" : {
-                    "$ref" : "#/components/examples/ValidationErrorBlankTranscriptSourceField"
-                  },
-                  "ValidationErrorInvalidTranscriptUrl" : {
-                    "$ref" : "#/components/examples/ValidationErrorInvalidTranscriptUrl"
-                  },
-                  "ValidationErrorUnsupportedVideoMediaType" : {
-                    "$ref" : "#/components/examples/ValidationErrorUnsupportedVideoMediaType"
-                  },
-                  "ValidationErrorUnsupportedAudioMediaType" : {
-                    "$ref" : "#/components/examples/ValidationErrorUnsupportedAudioMediaType"
-                  },
-                  "ValidationErrorUnsupportedTargetLocaleCode" : {
-                    "$ref" : "#/components/examples/ValidationErrorUnsupportedTargetLocaleCode"
-                  },
-                  "ValidationErrorBlankTargetLocaleCode" : {
-                    "$ref" : "#/components/examples/ValidationErrorBlankTargetLocaleCode"
-                  },
-                  "ValidationErrorMissingTargetLocaleCode" : {
-                    "$ref" : "#/components/examples/ValidationErrorMissingTargetLocaleCode"
-                  },
-                  "ValidationErrorLocaleCodeNotRequiredForEditedTranscript" : {
-                    "$ref" : "#/components/examples/ValidationErrorLocaleCodeNotRequiredForEditedTranscript"
-                  },
-                  "ValidationErrorEitherTargetLocaleCodesOrTranscriptionRequired" : {
-                    "$ref" : "#/components/examples/ValidationErrorEitherTargetLocaleCodesOrTranscriptionRequired"
-                  }
-                }
-              }
-            }
-          },
           "429" : {
-            "description" : "Too Many Requests",
+            "description" : "Too many requests",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -226,6 +638,9 @@
                 "examples" : {
                   "ErrorBodyInternalServerError" : {
                     "$ref" : "#/components/examples/ErrorBodyInternalServerError"
+                  },
+                  "ErrorBodyOFServiceInternalServerError" : {
+                    "$ref" : "#/components/examples/ErrorBodyServiceInternalServerError"
                   }
                 }
               }
