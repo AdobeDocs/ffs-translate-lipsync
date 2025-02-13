@@ -1,5 +1,12 @@
 ## API Walkthrough
 
+Transcribe, Dubbing & LipSync APIs address the need for automated video translation and lip-syncing at scale.  This document provides a guide to use these Async APIs  for:
+
+- Generating transcripts for customer owned video/audio files
+- Dubbing customer owned video/audio files in different languages with lip syncing capability
+- Providing ability to customers to download and then edit the source transcripts (Only sentences edit is supported right now, please do not modify "timestamps". Speakers can be updated accordingly however dont remove speakers) before dubbing and dub using the edited transcripts in different target languages
+- Providing ability to customers to dub using their own translated transcripts
+
 <InlineAlert slots="text" />
 
 There is a limit of 5 RPM for transcribe and dub endpoints and x100 RPM for Get result API per user.
