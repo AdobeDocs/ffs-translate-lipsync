@@ -5,63 +5,51 @@ description: This page is a quickstart guide for the ADLS Transcribe API.
 
 # Transcribe API
 
-Transcribe, Dubbing & LipSync APIs address the need for automated video translation and lip-syncing at scale.  This document provides a guide to use these Async APIs  for:
+Quickstart commands to create a transcription from audio or video files.
 
-- Generating transcripts for customer owned video/audio files
-- Dubbing customer owned video/audio files in different languages with lip syncing capability
-- Providing ability to customers to download and then edit the source transcripts (Only sentences edit is supported right now, please do not modify "timestamps". Speakers can be updated accordingly however dont remove speakers) before dubbing and dub using the edited transcripts in different target languages
-- Providing ability to customers to dub using their own translated transcripts
+## Before you start
 
-You can try the `curl` requests for the APIs directly from your terminal. Or you can use an HTTP client like [Postman](https://www.postman.com/).
+- You'll need a valid access token and client ID. See the [Authentication Guide](../getting_started/index.md) for details.
+- Upload your media files (audio or video) to [your storage location and generate a pre-signed URL](../getting_started/storage_solutions/index.md).
 
-### Transcribe API
+## Quickstart commands
 
-This endpoint enables transcription of audio or video input provided via a presigned URL. The API processes the input in supported languages and returns the transcription in the specified target language.
+In the commands below, be sure to:
 
-#### Step 1
+- Update the `Authorization` with the bearer access token.
+- Update `x-api-key` with the client ID.
+- Update `url` with the generated pre-signed url for your input file.
 
-Ensure you have reference to a valid access token. See the [Authentication Guide](../index.md) for details on how to obtain such a token.
+You can try these curl requests directly in your terminal. Or you can use an HTTP client like [Postman](https://www.postman.com/).
 
-#### Step 2
-
-Upload the input audio file/video file to storage location and generate a presigned url to access the same (Refer to the [Prerequisites](#prerequisites) section for more details).
-
-#### Step 3
-
-In the curl command below, update the **Authorization** with the bearer token in step 1, **x-api-key** as per the prerequisite, **mediaType** as per input type and **url** with the generated presigned url and run the curl.
-
-<InlineAlert variant="info" slots="text1" />
-
-Please refer to the [usage notes](../usage/) for details about supported media types and locale codes.
-
-**cURL Command for Audio with Source Language Output**
+### Transcribe audio with source language output
 
 ```bash
 curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
---header 'Authorization: Bearer <<Token>>' \
+--header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
---header 'x-api-key: <<Client-ID>>' \
+--header 'x-api-key: {ClientID}' \
 --data '{
   "audio": {
     "source": {
-         "url" : "<<Replace with the presigned URL of the input audio file>>"
+         "url" : "{Presigned_URL}"
     },
     "mediaType": "audio/mp3"
   }
 }'
 ```
 
-**cURL Command for Audio with Target Language Output**
+### Transcribe audio with target language output
 
 ```bash
 curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
---header 'Authorization: Bearer <<Token>>' \
+--header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
---header 'x-api-key: <<Client-ID>>' \
+--header 'x-api-key: {ClientID}' \
 --data '{
   "audio": {
     "source": {
-         "url" : "<<Replace with the presigned URL of the input audio file>>"
+         "url" : "{Presigned_URL}"
     },
     "mediaType": "audio/mp3"
   },
@@ -76,24 +64,24 @@ curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
 }'
 ```
 
-**cURL Command for Video with Source Language Output**
+### Transcribe video with source language output
 
 ```bash
 curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
---header 'Authorization: Bearer <<Token>>' \
+--header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
---header 'x-api-key: <<Client-ID>>' \
+--header 'x-api-key: {ClientID}' \
 --data '{
   "video": {
     "source": {
-         "url" : "<<Replace with the presigned URL of the input video file>>"
+         "url" : "{Presigned_URL}"
     },
     "mediaType": "video/mp4"
   }
 }'
 ```
 
-**cURL Command for Video with Target Language Output**
+### Transcribe video with target language output
 
 ```bash
 curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
@@ -118,9 +106,9 @@ curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
 }'
 ```
 
-#### Step 4
+## Check the result
 
-Check the job id in the response and follow the steps in [GET Result API](#get-result-api) to get the final result.
+Note the job ID in the response and use the [Get Result API](get_result_quickstart.md) to see the final result.
 
 **Sample response**
 
