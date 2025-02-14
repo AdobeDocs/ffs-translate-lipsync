@@ -38,7 +38,7 @@ The status of the job can be:
 
 If the status is `succeeded`, you'll see the result for the operation in a response like the example below:
 
-**Sample Dub API Response**
+**Dub job response example**
 
 ```bash
 {
