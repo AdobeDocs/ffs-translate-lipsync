@@ -31,7 +31,7 @@ Use audio and video voice transriptions to produce high-quality dubs, regardless
 There are three supported workflows:
 
 1. **Automated Dubbing** for audio and video
-2. **Dubbing with edited transcripts** 
+2. **Dubbing with edited transcripts**
 3. **Dubbing with pre-existing translations**
 
 ### [Get Result API](./api/index.md)
