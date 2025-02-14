@@ -29,18 +29,18 @@ You'll need to pass `targetLocaleCodes` in these commands.
 
 ```bash
 curl --location 'https://audio-video-api.adobe.io/beta/dub' \
---header 'Authorization: Bearer <<Token>>' \
+--header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
---header 'x-api-key: <<Client-ID>>' \
+--header 'x-api-key: {ClientID}' \
 --data '{
   "video": {
     "source": {
-        "url": "<<Replace with the presigned URL of the input video file>>"
+        "url": "{Presigned_URL}"
     },
     "mediaType": "video/mp4"
   },
   "targetLocaleCodes": [
-    "<<Replace with the command separated values of locale code>>"
+    "{targetLocaleCode}"
   ],
   "lipSync": "false"
 }'
@@ -50,48 +50,48 @@ curl --location 'https://audio-video-api.adobe.io/beta/dub' \
 
 ```bash
 curl --location 'https://audio-video-api.adobe.io/beta/dub' \
---header 'Authorization: Bearer <<Token>>' \
+--header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
---header 'x-api-key: <<Client-ID>>' \
+--header 'x-api-key: {ClientID}' \
 --data '{
   "audio": {
     "source": {
-        "url": "<<Replace with the presigned URL of the input video file>>"
+        "url": "{Presigned_URL}"
       },
       "mediaType": "audio/mp3"
     },
-    "targetLocaleCodes": [  "<<Replace with the command separated values of locale code>>"   ],
+    "targetLocaleCodes": [  "{targetLocaleCode}"   ],
     "lipSync": "false"
 }'
 ```
 
 ### Dubbing with edited transcript
 
-You'll need to pass the `targetLocaleCodes` and `edited transcripts` in these commands. The `transcripts` should contain **only one value** with the URL for the edited transcript.
+You'll need to pass the `targetLocaleCodes` and edited transcripts in these commands. The `transcripts` should contain **only one value** with the URL for the edited transcript.
 
 #### Dubbing with edited translations for video
 
 ```bash
 curl --location 'https://audio-video-api.adobe.io/beta/dub' \
---header 'Authorization: Bearer <<Token>>' \
+--header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
---header 'x-api-key: <<Client-ID>>' \
+--header 'x-api-key: {ClientID}' \
 --data '{
   "video": {
     "source": {
-      "url": "<<Replace with the presigned URL of the input video file>>"
+      "url": "{Presigned_URL}"
     },
     "mediaType": "video/mp4"
   },
   "transcripts": [
     {
       "source": {
-        "url": "<<Replace with the presigned URL of the input transcript file>>"
+        "url": "{Transcript_Presigned_URL}"
       }
     }
   ],
   "targetLocaleCodes": [
-    "<<Replace with the comma-separated values of locale code>>"
+    "{targetLocaleCode}"
   ],
   "lipSync": "false"
 }'
@@ -101,26 +101,26 @@ curl --location 'https://audio-video-api.adobe.io/beta/dub' \
 
 ```bash
 curl --location 'https://audio-video-api.adobe.io/beta/dub' \
---header 'Authorization: Bearer <<Token>>' \
+--header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
---header 'x-api-key: <<Client-ID>>' \
+--header 'x-api-key: {ClientID}' \
 --data '{
   "audio": {
     "source": {
-      "url": "<<Replace with the presigned URL of the input video file>>"
+      "url": "{Presigned_URL}"
     },
     "mediaType": "audio/mp3"
   },
   "transcripts": [
     {
       "source": {
-        "url": "<<Replace with the presigned URL of the input translated transcript file in de-DE>>"
+        "url": "{Transcript_Presigned_URL_de-DE}"
       },
       "localeCode": "de-DE"
     },
     {
       "source": {
-        "url": "<<Replace with the presigned URL of the input translated transcript file in en-US>>"
+        "url": "{Transcript_Presigned_URL_en-US}"
       },
       "localeCode": "en-US"
     }
@@ -137,24 +137,24 @@ You need to pass `transcripts` along with `localeCode` in this case. Each value 
 
 ```bash
 curl --location 'https://audio-video-api.adobe.io/beta/dub' \
---header 'Authorization: Bearer <<Token>>' \
+--header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
---header 'x-api-key: <<Client-ID>>' \
+--header 'x-api-key: {ClientID}' \
 --data '{
   "video": {
     "source": {
-        "url": "<<Replace with the presigned URL of the input video file>>"
+        "url": "{Presigned_URL}"
     },
     "mediaType": "video/mp4"
   },
   "transcripts": [{
         "source": {
-            "url": "<<Replace with the presigned URL of the input translated transcript file in de-DE>>"
+            "url": "{Transcript_Presigned_URL_de-DE}"
         },
         "localeCode": "de-DE"
     },{
         "source": {
-            "url": "<<Replace with the presigned URL of the input translated transcript file in en-US>>"
+            "url": "{Transcript_Presigned_URL_en-US}"
         },
         "localeCode": "en-US"
     }
@@ -167,26 +167,26 @@ curl --location 'https://audio-video-api.adobe.io/beta/dub' \
 
 ```bash
 curl --location 'https://audio-video-api.adobe.io/beta/dub' \
---header 'Authorization: Bearer <<Token>>' \
+--header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
---header 'x-api-key: <<Client-ID>>' \
+--header 'x-api-key: {ClientID}' \
 --data '{
   "audio": {
     "source": {
-      "url": "<<Replace with the presigned URL of the input video file>>"
+      "url": "{Presigned_URL}"
     },
     "mediaType": "audio/mp3"
   },
   "transcripts": [
     {
       "source": {
-        "url": "<<Replace with the presigned URL of the input translated transcript file in de-DE>>"
+        "url": "{Transcript_Presigned_URL_de-DE}"
       },
       "localeCode": "de-DE"
     },
     {
       "source": {
-        "url": "<<Replace with the presigned URL of the input translated transcript file in en-US>>"
+        "url": "{Transcript_Presigned_URL_en-US}"
       },
       "localeCode": "en-US"
     }
@@ -204,6 +204,6 @@ Note the job ID in the response and use the [Get Result API](get_result_quickst
 ```bash
 {
     "jobId": "986fc222-1118-4242-b326-eb9873e3982f",
-    "statusUrl": "https://audio-video-api.adobe.io/beta/status/<<Replace with the job id>>"
+    "statusUrl": "https://audio-video-api.adobe.io/beta/status/{jobID}"
 }
 ```
