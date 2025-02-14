@@ -1,44 +1,40 @@
 ---
 title: Storage Solutions
 description: This page explains the storage solutions that are acceptalbe for use with video services.
-contributors:
-  - https://github.com/fly0102030405
-  - https://github.com/BaskarMitrah
 ---
 
 import "../../../styles/main.css";
 
 # Storage Solutions
 
-You will need to be able to use some type of user owned storage (ie: Amazon S3 buckets) for the video/audio and edited transcripts to be able to generate a presigned URL to supply as the video/audio file input for the APIs.
+Explore more about the storage solutions you'll need when you're using these APIs.
 
-Some ways to achieve this are described below.
+Some form of user-owned storage (like Amazon S3 buckets) is necessary when you use these audio and video APIs. Media files (audio or video) and edited transcripts that are kept in your storage can be targeted with pre-signed URLS and used as input for the API.
+
+Learn how to set up your files in these storage solutions to use with the API:
 
 ## Using Amazon S3 buckets
 
-  1. Login to your AWS account.
+  1. Log in to your AWS account.
   2. Go to s3.
-  3. Create a new bucket with some name (ex: `adobeapitesting`).
-  4. Drag and drop the video file/audio file/edited transcript file you want to test in the bucket.
-  5. Once the upload completes, select the file and go to **Actions**.
-  6. Select the **Share with presigned url** option and give the duration you want the presigned url to be valid.
-  7. Copy the generated presigned url (it will also automatically be copied when you create it).
+  3. Create a new bucket, with any name (for example, *AdobeApiTesting*).
+  4. Drag and drop the media file (audio/video) or edited transcript file that you want to provide to the API in the bucket you've created.
+  5. Once the upload is complete, select the file and go to **Actions**.
+  6. Select the **Share with pre-signed URL** option and enter a duration for the pre-signed URL to be valid.
+  7. Copy the generated pre-signed URL to use in the API (it may also be copied automatically when you create it).
 
-## Using Frame.io account
+## Using an Frame.io account
 
-  1. Login to your Frame.io account
-  2. Create a project (ie: `AdobeApiTesting`)
-  3. Open the inspect view of the browser. (In Chrome, press f12 and go to the "network" tab).
-  4. Drag and drop the video file/audio file/edited transcript file you want to test in the bucket.
-  5. Select the file and click on download.
-  6. In the "network" tab, you will see a `GET` call using a presigned url to download the file.
-  7. Copy that url to use in your API testing.
+  1. Log in to your Frame.io account.
+  2. Create a project (for example, *AdobeApiTesting*).
+  3. Open the **Inspect** view of your browser (using Chrome, press f12 and go to the **Network** tab).
+  4. Drag and drop the media file (audio/video) or edited transcript file that you want to provide to the API in the bucket.
+  5. Select the file, and click **Download**.
+  6. In the **Network** tab, you'll see a GET call using a pre-signed URL to use to download the file.
+  7. Copy that URL to use in the API.
 
-## Use Google's direct link service
+## Using Google's direct link service
 
-  1. You can use [Google's direct link service](https://sites.google.com/site/gdocs2direct/?authuser=1&pli=1) to generate downloadable public links for your files.
-  2. Before generating, you'll need to make sure your file's visibility in your Google Drive is set to **Anyone with the link**.
-  3. You can try the `curl` requests for the APIs directly from terminal.
+You can use [Google's direct link service](https://sites.google.com/site/gdocs2direct/?authuser=1&pli=1) to generate downloadable public links for your files by following the instructions on the page.
 
-Optionally, you can use an http client like [Postman](https://www.postman.com/) to try out the APIs.
-
+Before generating the links, be sure your file's visibility in your Google Drive is set to **Anyone with the link**.

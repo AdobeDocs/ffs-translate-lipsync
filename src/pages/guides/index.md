@@ -3,7 +3,7 @@ title: Transcribe API Quickstart
 description: This page is a quickstart guide for the ADLS Transcribe API.
 ---
 
-## API Walkthrough
+# Transcribe API
 
 Transcribe, Dubbing & LipSync APIs address the need for automated video translation and lip-syncing at scale.  This document provides a guide to use these Async APIs  for:
 
@@ -12,9 +12,7 @@ Transcribe, Dubbing & LipSync APIs address the need for automated video translat
 - Providing ability to customers to download and then edit the source transcripts (Only sentences edit is supported right now, please do not modify "timestamps". Speakers can be updated accordingly however dont remove speakers) before dubbing and dub using the edited transcripts in different target languages
 - Providing ability to customers to dub using their own translated transcripts
 
-<InlineAlert slots="text" />
-
-There is a limit of 5 RPM for transcribe and dub endpoints and x100 RPM for Get result API per user.
+You can try the `curl` requests for the APIs directly from your terminal. Or you can use an HTTP client like [Postman](https://www.postman.com/).
 
 ### Transcribe API
 
