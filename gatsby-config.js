@@ -20,6 +20,10 @@ module.exports = {
       },
       {
         title: 'Getting Started',
+        path: '/getting_started/'
+      },
+      {
+        title: 'Guides',
         path: '/guides/'
       },
       {
@@ -30,20 +34,39 @@ module.exports = {
     subPages: [
       {
         title: 'Getting Started',
-        path: '/guides/',
+        path: '/getting_started/',
         header: true,
         pages: [
           {
             title: 'Authentication',
-            path: '/guides/'
+            path: '/getting_started/'
           },
           {
-            title: 'Getting Started with Video Services',
-            path: '/guides/video'
+            title: 'Storage Solutions',
+            path: '/getting_started/storage_solutions'
           },
           {
             title: 'API Usage Notes',
-            path: '/guides/usage'
+            path: '/getting_started/usage'
+          },
+        ]
+      },
+      {
+        title: 'Guides',
+        path: '/guides/',
+        header: true,
+        pages: [
+          {
+            title: 'Transcribe API Quickstart',
+            path: '/guides/'
+          },
+          {
+            title: 'Dub API Quickstart',
+            path: '/guides/dub_quickstart.md/'
+          },
+          {
+            title: 'Get Result API Quickstart',
+            path: '/guides/get_result_quickstart.md/'
           },
         ]
       }

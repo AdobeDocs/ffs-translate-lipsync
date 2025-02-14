@@ -1,39 +1,134 @@
 ---
-title: The authentication guide
-description: This is the authentication guide for Adobe Firefly's ADLS API.
-contributors:
-  - https://github.com/fly0102030405
-  - https://github.com/BaskarMitrah
+title: Transcribe API Quickstart
+description: This page is a quickstart guide for the ADLS Transcribe API.
 ---
 
-import "../../styles/main.css";
+# Transcribe API
 
-# Authentication
+Quickstart commands to create a transcription from audio or video files.
 
-Server-to-server authentication credentials let your application's server generate access tokens and make API calls on behalf of your application. This is sometimes referred to as [two-legged OAuth](https://www.ibm.com/docs/en/datapower-gateway/10.5.x?topic=flows-two-legged-oauth-flow).
+## Before you start
 
-## Access tokens
+- You'll need a valid access token and client ID. See the [Authentication Guide](../getting_started/index.md) for details.
+- Upload your media files (audio or video) to [your storage location and generate a pre-signed URL](../getting_started/storage_solutions/index.md).
 
-Each access token is valid for 24 hours. To adhere to OAuth best practices, you should generate a new token every 23 hours.
+## Quickstart commands
 
-Access tokens can be generated programmatically by sending a `POST` request to the following endpoint:
+In the commands below, be sure to:
+
+- Update the `Authorization` with the bearer access token.
+- Update `x-api-key` with the client ID.
+- Update `url` with the generated pre-signed url for your input file.
+
+You can try these curl requests directly in your terminal. Or you can use an HTTP client like [Postman](https://www.postman.com/).
+
+### Transcribe audio with source language output
 
 ```bash
-curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
--H 'Content-Type: application/x-www-form-urlencoded' \
--d 'grant_type=client_credentials&client_id={client_id}&client_secret={client_secret}&scope=openid,AdobeID,firefly_enterprise'
+curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
+--header 'Authorization: Bearer {AccessToken}' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: {ClientID}' \
+--data '{
+  "audio": {
+    "source": {
+         "url" : "{Presigned_URL}"
+    },
+    "mediaType": "audio/mp3"
+  }
+}'
 ```
 
-The required parameters are:
+### Transcribe audio with target language output
 
-* `client_id`: The client ID.
-* `client_secret`: The client secret.
-* `scope`: The scopes are `openid`, `AdobeID`, `firefly_enterprise`.
+```bash
+curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
+--header 'Authorization: Bearer {AccessToken}' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: {ClientID}' \
+--data '{
+  "audio": {
+    "source": {
+         "url" : "{Presigned_URL}"
+    },
+    "mediaType": "audio/mp3"
+  },
+    "targetLocaleCodes": [
+        "en-US",
+        "es-ES",
+        "de-DE",
+        "fr-FR",
+        "it-IT",
+        "pt-PT"
+    ]
+}'
+```
 
-The token endpoint also returns an expiry date and the token itself (when decoded) contains the expiry time.
+### Transcribe video with source language output
 
-### Automate tokens
+```bash
+curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
+--header 'Authorization: Bearer {AccessToken}' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: {ClientID}' \
+--data '{
+  "video": {
+    "source": {
+         "url" : "{Presigned_URL}"
+    },
+    "mediaType": "video/mp4"
+  }
+}'
+```
 
-Automate your token generation by calling the IMS endpoint using standard OAuth2 libraries. Using industry-standard libraries is the quickest and most secure way of integrating with OAuth.
+### Transcribe video with target language output
 
-We recommend that developers be diligent when picking the OAuth 2.0 library that works best for their application. Your teams' projects are likely leveraging OAuth libraries already to connect with other APIs. Use these libraries to automatically generate tokens when they expire.
+```bash
+curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
+--header 'Authorization: Bearer <<Token>>' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <<Client-ID>>' \
+--data '{
+  "video": {
+    "source": {
+         "url" : "<<Replace with the presigned URL of the input video file>>"
+    },
+    "mediaType": "video/mp4"
+  },
+   "targetLocaleCodes": [
+        "en-US",
+        "es-ES",
+        "de-DE",
+        "fr-FR",
+        "it-IT",
+        "pt-PT"
+    ]
+}'
+```
+
+## Check the result
+
+Note the job ID in the response and use the [Get Result API](get_result_quickstart.md) to see the final result.
+
+**Sample response**
+
+```json
+{
+    "jobId": "500de496-4961-4641-a273-1c760ee7e0b4",
+    "status": "succeeded",
+    "outputs": [
+        {
+            "destination": {
+                "url": "https://auto-dubbing-stage-ue1.s3-accelerate.amazonaws.com/500de496-4961-4641-a273-1c760ee7e0b4/translation_de_DE.txt?response-content-disposition=attachment&AWSAccessKeyId=AKIATIXTMZXK45BXP3W2&Signature=Jfx%2F%2FL1GJqHjrWHVph0FcxoqpJs%3D&Expires=1725446894"
+            },
+            "localeCode": "de-DE"
+        },
+        {
+            "destination": {
+                "url": "https://auto-dubbing-stage-ue1.s3-accelerate.amazonaws.com/500de496-4961-4641-a273-1c760ee7e0b4/translation_es_sp.txt?response-content-disposition=attachment&AWSAccessKeyId=AKIATIXTMZXK45BXP3W2&Signature=FA5OF%2BXKZhnvmUcKHGAYkbhGpDs%3D&Expires=1725446894"
+            },
+            "localeCode": "es-ES"
+        }
+    ]
+}
+```
