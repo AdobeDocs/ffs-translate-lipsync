@@ -2,18 +2,29 @@
 title: Get Result API Quickstart
 description: This page is a quickstart guide for the ADLS Get Result API.
 ---
-### GET Result API
+# GET Result API
 
-#### Step 1
+Quickstart commands to see the result of an async dub job.
 
-Update the `jobId`, `Authorization` and `x-api-key` in the command below. **Note:** The `jobId` was returned in the response of the [transcribe](#transcribe-api) or [dub](#dub-api) API call.
+## Before you start
 
-**cURL for Get Status**
+- You'll need a valid access token and client ID. See the [Authentication Guide](../getting_started/index.md) for details.
+- Upload your media files (audio or video) to [your storage location and generate a pre-signed URL](../getting_started/storage_solutions/index.md).
+
+## Quickstart commands
+
+In the command, be sure to:
+
+-  Update `jobId` with the ID returned in the response for the ADLS job.
+-  Update the `Authorization` with the bearer access token.
+-  Update `x-api-key` with the client ID.
+
+### Get status
 
 ```bash
-curl --location 'https://audio-video-api.adobe.io/beta/status/<<Replace with the job id>>' \
---header 'Authorization: Bearer <<Token>>' \
---header 'x-api-key: <<Client-ID>>' \
+curl --location 'https://audio-video-api.adobe.io/beta/status/{jobID}' \
+--header 'Authorization: Bearer {AccessToken}' \
+--header 'x-api-key: {ClientID}' \
 --header 'Content-Type: application/json'
 ```
 
@@ -25,34 +36,9 @@ The status of the job can be:
 - `"succeeded"`
 - `"partially_succeeded"`
 
-When it's `succeeded`, you will see the result for the operation.
+If the status is `succeeded`, you'll see the result for the operation in a response like the example below:
 
-##### Sample Transcribe API response
-
-```bash
-{
-    "jobId": "500de496-4961-4641-a273-1c760ee7e0b4",
-    "status": "succeeded",
-    "outputs": [
-        {
-            "destination": {
-                "url": "https://auto-dubbing-stage-ue1.s3-accelerate.amazonaws.com/500de496-4961-4641-a273-1c760ee7e0b4/translation_de_DE.txt?response-content-disposition=attachment&AWSAccessKeyId=AKIATIXTMZXK45BXP3W2&Signature=Jfx%2F%2FL1GJqHjrWHVph0FcxoqpJs%3D&Expires=1725446894"
-            },
-            "localeCode": "de-DE"
-        },
-        {
-            "destination": {
-                "url": "https://auto-dubbing-stage-ue1.s3-accelerate.amazonaws.com/500de496-4961-4641-a273-1c760ee7e0b4/translation_es_sp.txt?response-content-disposition=attachment&AWSAccessKeyId=AKIATIXTMZXK45BXP3W2&Signature=FA5OF%2BXKZhnvmUcKHGAYkbhGpDs%3D&Expires=1725446894"
-            },
-            "localeCode": "es-ES"
-        }
-    ]
-}
-```
-
-The `url` can be used to download the transcript file for the input.
-
-##### Sample Dub API Response
+**Sample Dub API Response**
 
 ```bash
 {
@@ -103,18 +89,9 @@ The `url` can be used to download the transcript file for the input.
 }
 ```
 
-- `audioOutput`: the dubbed audio file in `wav` format.
-- `videoOutput`: the dubbed video output with/without lip sync based on input configuration.
-- `transcriptOutput`: the translated transcript for the target language.
+## Verify the content credentials
 
-### Verifying the Content Credentials on output
+To address concerns around content legitimacy, these content authentication steps should be used for AI-generated assets.
 
-Introduces a content authentication initiative for AI-generated assets, addressing concerns around content legitimacy.
-
-#### Step 1
-
-Download the final output video/audio using the presigned url in the success response of [GET Result API](#get-result-api).
-
-#### Step 2
-
-Upload the file <https://contentcredentials.org/verify> to check the credentials.
+1. Download the final output video/audio from the pre-signed URL in the successful response.
+2. Upload the file to the [Content Credentials website](https://contentcredentials.org/verify) to check the credentials.
