@@ -20,26 +20,26 @@ module.exports = {
       },
       {
         title: 'Getting Started',
-        path: '/getting_started/'
+        path: '/getting_started'
       },
       {
         title: 'Guides',
-        path: '/guides/'
+        path: '/guides/dub_quickstart.md'
       },
       {
-        title: 'API References',
-        path: '/api/',
+        title: 'API Reference',
+        path: '/api',
       },
     ],
     subPages: [
       {
         title: 'Getting Started',
-        path: '/getting_started/',
+        path: '/getting_started',
         header: true,
         pages: [
           {
             title: 'Authentication',
-            path: '/getting_started/'
+            path: '/getting_started'
           },
           {
             title: 'Storage Solutions',
@@ -53,20 +53,20 @@ module.exports = {
       },
       {
         title: 'Guides',
-        path: '/guides/',
+        path: '/guides/dub_quickstart.md',
         header: true,
         pages: [
           {
             title: 'Transcribe API Quickstart',
-            path: '/guides/'
+            path: '/guides'
           },
           {
             title: 'Dub API Quickstart',
-            path: '/guides/dub_quickstart.md/'
+            path: '/guides/dub_quickstart.md'
           },
           {
             title: 'Get Result API Quickstart',
-            path: '/guides/get_result_quickstart.md/'
+            path: '/guides/get_result_quickstart.md'
           },
         ]
       }
