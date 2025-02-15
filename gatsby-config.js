@@ -24,7 +24,7 @@ module.exports = {
       },
       {
         title: 'Guides',
-        path: '/guides/dub_quickstart.md'
+        path: '/guides/'
       },
       {
         title: 'API Reference',
@@ -53,16 +53,12 @@ module.exports = {
       },
       {
         title: 'Guides',
-        path: '/guides/dub_quickstart.md',
+        path: '/guides/',
         header: true,
         pages: [
           {
-            title: 'Transcribe API Quickstart',
-            path: '/guides'
-          },
-          {
             title: 'Dub API Quickstart',
-            path: '/guides/dub_quickstart.md'
+            path: '/guides/'
           },
           {
             title: 'Get Result API Quickstart',
