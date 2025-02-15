@@ -34,7 +34,7 @@ There are three supported workflows:
 
 [Dub API](./api/index.md)
 
-Use audio and video voice transriptions to produce high-quality dubs, regardless of background noise and music. 
+Use audio and video voice transriptions to produce high-quality dubs, regardless of background noise and music.
 
 <DiscoverBlock slots="link, text"/>
 
