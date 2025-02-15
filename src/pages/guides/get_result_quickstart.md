@@ -2,7 +2,7 @@
 title: Get Result API Quickstart
 description: This page is a quickstart guide for the ADLS Get Result API.
 ---
-# GET Result API
+# Get Result API
 
 Quickstart commands to see the result of an async dub job.
 

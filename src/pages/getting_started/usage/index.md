@@ -10,20 +10,19 @@ import "../../../styles/main.css";
 
 # Video Services API Usage Notes
 
-On this page you'll find what's currently supported, known limitations and workarounds, and the current usage limits set for the Adobe Dubbing and Lipsync (ADLS) API.
+On this page you'll find what's currently supported, known limitations and workarounds, and the current usage limits set for the Adobe Dubbing and Lip Sync (ADLS) API.
 
 ## Known limitations and workarounds
 
 - **Speaker Mismatch:** Speaker mismatches or additional/missing speakers may occasionally occur in output transcripts. This has been observed in approximately 9% of cases.
-- **Children's Voices:** Currently, we do not support children's voices for translation. Support for children's voices is planned for the upcoming v4 model.
 - **Voice Modulation:** Voices in the output may vary in pitch or show significant modulation. Regenerating the video/audio can often resolve this issue.
 - **Re-dubbing Dubbed Content:** Avoid using deepfake content for re-dubbing purposes.
 
-## When editing transcripts
+## For editing transcripts
 
-Sentence editing is currently supported. Please do not modify the timestamps.
+Only sentence editing is currently supported. Please do not modify the timestamps.
 
-Speakers can be updated, however do not remove speakers before dubbing. Dub using the edited transcripts in different target languages.
+Speakers can be updated, however do not remove speakers before dubbing. Also, dub using the edited transcripts in different target languages.
 
 ## Language support
 
@@ -57,8 +56,8 @@ Technical details for videos used as input:
 - **Duration (max):** 30 mins
 - **FPS:** 24 fps, 25 fps, 29.97, 30, 50, 59.94, 60
 - **Resolution (max):** Full HD `1,920*1,080px` or `1080*1920px`
-- **CODEC**: `H.264`
-- **Formats/container:** `.mp4, .mp3, .wav`
+- **CODEC**: `H.264, HEVC`
+- **Formats/container:** `.mp4, .mov`
 - **Input medium:** Pre-signed URL
 - **Render time:** 2x the video length (for 30 fps and 1080 resolution) if `lipSync` is enabled
 - **Speaker speech (min):** 5 secs
@@ -71,7 +70,7 @@ Technical details for audio used as input:
 - **CODEC:** `MPEG, PCM`
 - **Formats/container:** `.mp3, .wav, .aac`
 - **Input medium:** Pre-signed URL
-- **Render time:** 2.5x the video length if `lipSync` is disabled
+- **Render time:** 2x the audio length
 - **Dubbing and Lip Sync:** Multi-speaker support
 
 ## Request limits per API
