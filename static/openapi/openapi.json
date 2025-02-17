@@ -3,7 +3,7 @@
   "info" : {
     "version" : "",
     "title" : "Dubbing and Lip Sync API",
-    "description" : "This RESTful API offers transcription, dubbing and lip sync resources for enterprise use. With this API a transcription can be generated (from audio or video input) and then used to dub new audio or video."
+    "description" : "This RESTful API offers dubbing and lip sync resources for enterprise use. With this API an audio or video input can be dubbed to new language(s)."
   },
   "servers" : [ {
     "url" : "https://audio-video-api.adobe.io",
@@ -118,6 +118,9 @@
             "description" : "Resource Not Found",
             "content" : {
               "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorBody"
+                },
                 "examples" : {
                   "ErrorBodyResourceNotFound" : {
                     "$ref" : "#/components/examples/ErrorBodyResourceNotFound"
@@ -391,6 +394,9 @@
             "description" : "Resource not found",
             "content" : {
               "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorBody"
+                },
                 "examples" : {
                   "ErrorBodyResourceNotFound" : {
                     "$ref" : "#/components/examples/ErrorBodyResourceNotFound"
@@ -875,7 +881,7 @@
         "summary" : "Successful Submission",
         "value" : {
           "jobId" : "<jobId>",
-          "statusUrl" : "https://<baseUrl>/beta/status/<jobId>"
+          "statusUrl" : "https://<baseUrl>/v1/status/<jobId>"
         }
       },
       "AudioInputToGenerateTranscriptFromSourceAudio" : {
