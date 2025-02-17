@@ -38,8 +38,6 @@ Dubbing is supported for the following languages:
 - French (Canada) (`fr-CA`)
 - Danish (Denmark) (`da-DK`)
 - Norwegian (Norway) (`nb-NO`)
-- Dutch (Netherlands) (`nl-NL`)
-- Swedish (Sweden) (`sv-SE`)
 - German (`de-DE`)
 - Italian (`it-IT`)
 - Portuguese (Brazil) (`pt-BR`)
@@ -47,7 +45,6 @@ Dubbing is supported for the following languages:
 - Hindi (India) (`hi-IN`)
 - Japanese (Japan) (`ja-JP`)
 - Korean (South Korea) (`ko-KR`)
-- Chinese (Simplified, China) (`zh-CN`)
 
 ## Input video support
 
@@ -55,12 +52,13 @@ Technical details for videos used as input:
 
 - **Duration (max):** 30 mins
 - **FPS:** 24 fps, 25 fps, 29.97, 30, 50, 59.94, 60
-- **Resolution (max):** Full HD `1,920*1,080px` or `1080*1920px`
+- **Resolution (max):** Full HD `1920*1080px` or `1080*1920px`
 - **CODEC**: `H.264, HEVC`
 - **Formats/container:** `.mp4, .mov`
 - **Input medium:** Pre-signed URL
-- **Render time:** 2x the video length (for 30 fps and 1080 resolution) if `lipSync` is enabled
+- **Render time:** 3x the video length, 10x the video length (for 30 fps and 1080 resolution) if `lipSync` is enabled
 - **Speaker speech (min):** 5 secs
+- **Dubbing and Lip Sync:** Multi-speaker support
 
 ## Input audio support
 
@@ -70,8 +68,8 @@ Technical details for audio used as input:
 - **CODEC:** `MPEG, PCM`
 - **Formats/container:** `.mp3, .wav, .aac`
 - **Input medium:** Pre-signed URL
-- **Render time:** 2x the audio length
-- **Dubbing and Lip Sync:** Multi-speaker support
+- **Render time:** 3x the audio length
+- **Dubbing:** Multi-speaker support
 
 ## Request limits per API
 
@@ -84,7 +82,5 @@ These usage limits apply to your entire organization. <br/>
 The current limitations are:
 
 **Dubbing/Lip Sync endpoint:**  5 requests per minute and 150 requests per day.
-
-**Transcribe endpoint:** 5 requests per minute.
 
 **Get Result endpoint:** 100 requests per minute.

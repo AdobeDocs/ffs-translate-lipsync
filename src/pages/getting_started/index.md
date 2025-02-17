@@ -21,14 +21,14 @@ Access tokens can be generated programmatically by sending a `POST` request to t
 ```bash
 curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
 -H 'Content-Type: application/x-www-form-urlencoded' \
--d 'grant_type=client_credentials&client_id={client_id}&client_secret={client_secret}&scope=openid,AdobeID,firefly_enterprise'
+-d 'grant_type=client_credentials&client_id={client_id}&client_secret={client_secret}&scope=openid,AdobeID,firefly_api,ff_apis'
 ```
 
 The required parameters are:
 
 * `client_id`: The client ID.
 * `client_secret`: The client secret.
-* `scope`: The scopes are `openid`, `AdobeID`, `firefly_enterprise`.
+* `scope`: The scopes are `openid`, `AdobeID`, `firefly_api`, `ff_apis`.
 
 The token endpoint also returns an expiry date and the token itself (when decoded) contains the expiry time.
 

@@ -28,7 +28,7 @@ You'll need to pass `targetLocaleCodes` in these commands.
 #### Automated dubbing for video
 
 ```bash
-curl --location 'https://audio-video-api.adobe.io/beta/dub' \
+curl --location 'https://audio-video-api.adobe.io/v1/dub' \
 --header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
 --header 'x-api-key: {ClientID}' \
@@ -49,7 +49,7 @@ curl --location 'https://audio-video-api.adobe.io/beta/dub' \
 #### Automated dubbing for audio
 
 ```bash
-curl --location 'https://audio-video-api.adobe.io/beta/dub' \
+curl --location 'https://audio-video-api.adobe.io/v1/dub' \
 --header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
 --header 'x-api-key: {ClientID}' \
@@ -60,7 +60,9 @@ curl --location 'https://audio-video-api.adobe.io/beta/dub' \
       },
       "mediaType": "audio/mp3"
     },
-    "targetLocaleCodes": [  "{targetLocaleCode}"   ],
+    "targetLocaleCodes": [
+      "{targetLocaleCode}"
+    ],
     "lipSync": "false"
 }'
 ```
@@ -72,7 +74,7 @@ You'll need to pass the `targetLocaleCodes` and edited transcripts in these comm
 #### Dubbing with edited translations for video
 
 ```bash
-curl --location 'https://audio-video-api.adobe.io/beta/dub' \
+curl --location 'https://audio-video-api.adobe.io/v1/dub' \
 --header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
 --header 'x-api-key: {ClientID}' \
@@ -100,7 +102,7 @@ curl --location 'https://audio-video-api.adobe.io/beta/dub' \
 #### Dubbing with edited translations for audio
 
 ```bash
-curl --location 'https://audio-video-api.adobe.io/beta/dub' \
+curl --location 'https://audio-video-api.adobe.io/v1/dub' \
 --header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
 --header 'x-api-key: {ClientID}' \
@@ -114,16 +116,12 @@ curl --location 'https://audio-video-api.adobe.io/beta/dub' \
   "transcripts": [
     {
       "source": {
-        "url": "{Transcript_Presigned_URL_de-DE}"
-      },
-      "localeCode": "de-DE"
-    },
-    {
-      "source": {
-        "url": "{Transcript_Presigned_URL_en-US}"
-      },
-      "localeCode": "en-US"
+        "url": "{Transcript_Presigned_URL}"
+      }
     }
+  ],
+  "targetLocaleCodes": [
+    "{targetLocaleCode}"
   ],
   "lipSync": "false"
 }'
@@ -136,7 +134,7 @@ You need to pass `transcripts` along with `localeCode` in this case. Each value 
 #### Dubbing with pre-existing translations for video
 
 ```bash
-curl --location 'https://audio-video-api.adobe.io/beta/dub' \
+curl --location 'https://audio-video-api.adobe.io/v1/dub' \
 --header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
 --header 'x-api-key: {ClientID}' \
@@ -147,12 +145,14 @@ curl --location 'https://audio-video-api.adobe.io/beta/dub' \
     },
     "mediaType": "video/mp4"
   },
-  "transcripts": [{
+  "transcripts": [
+    {
         "source": {
             "url": "{Transcript_Presigned_URL_de-DE}"
         },
         "localeCode": "de-DE"
-    },{
+    },
+    {
         "source": {
             "url": "{Transcript_Presigned_URL_en-US}"
         },
@@ -166,7 +166,7 @@ curl --location 'https://audio-video-api.adobe.io/beta/dub' \
 #### Dubbing with pre-existing translations for audio
 
 ```bash
-curl --location 'https://audio-video-api.adobe.io/beta/dub' \
+curl --location 'https://audio-video-api.adobe.io/v1/dub' \
 --header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
 --header 'x-api-key: {ClientID}' \
@@ -204,6 +204,6 @@ Note the job ID in the response and use the [Get Result API](get_result_quickst
 ```bash
 {
     "jobId": "986fc222-1118-4242-b326-eb9873e3982f",
-    "statusUrl": "https://audio-video-api.adobe.io/beta/status/{jobID}"
+    "statusUrl": "https://audio-video-api.adobe.io/v1/status/{jobID}"
 }
 ```
