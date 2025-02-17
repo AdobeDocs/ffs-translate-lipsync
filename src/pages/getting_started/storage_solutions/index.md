@@ -33,6 +33,10 @@ Learn how to set up your files in these storage solutions to use with the API:
   6. In the **Network** tab, you'll see a GET call using a pre-signed URL to use to download the file.
   7. Copy that URL to use in the API.
 
+## Using Frame.io Developer APIs
+
+Refer to [Frame.io API guide](https://developer.frame.io/api/reference/) to create assets and get their pre-signed URL.
+
 ## Using Google's direct link service
 
 You can use [Google's direct link service](https://sites.google.com/site/gdocs2direct/?authuser=1&pli=1) to generate downloadable public links for your files by following the instructions on the page.

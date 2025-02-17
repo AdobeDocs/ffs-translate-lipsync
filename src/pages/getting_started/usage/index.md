@@ -61,6 +61,7 @@ Technical details for videos used as input:
 - **Input medium:** Pre-signed URL
 - **Render time:** 2x the video length (for 30 fps and 1080 resolution) if `lipSync` is enabled
 - **Speaker speech (min):** 5 secs
+- **Dubbing and Lip Sync:** Multi-speaker support
 
 ## Input audio support
 
@@ -71,7 +72,7 @@ Technical details for audio used as input:
 - **Formats/container:** `.mp3, .wav, .aac`
 - **Input medium:** Pre-signed URL
 - **Render time:** 2x the audio length
-- **Dubbing and Lip Sync:** Multi-speaker support
+- **Dubbing:** Multi-speaker support
 
 ## Request limits per API
 

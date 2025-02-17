@@ -18,6 +18,7 @@ Each access token is valid for 24 hours. To adhere to OAuth best practices, you 
 
 Access tokens can be generated programmatically by sending a `POST` request to the following endpoint:
 
+// verify scopes
 ```bash
 curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
 -H 'Content-Type: application/x-www-form-urlencoded' \

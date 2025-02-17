@@ -22,7 +22,7 @@ In the command, be sure to:
 ### Get status
 
 ```bash
-curl --location 'https://audio-video-api.adobe.io/beta/status/{jobID}' \
+curl --location 'https://audio-video-api.adobe.io/v1/status/{jobID}' \
 --header 'Authorization: Bearer {AccessToken}' \
 --header 'x-api-key: {ClientID}' \
 --header 'Content-Type: application/json'
