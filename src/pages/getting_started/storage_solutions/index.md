@@ -9,7 +9,7 @@ import "../../../styles/main.css";
 
 Explore more about the storage solutions you'll need when you're using these APIs.
 
-Some form of user-owned storage (like Amazon S3 buckets) is necessary when you use these audio and video APIs. Media files (audio or video) and edited transcripts that are kept in your storage can be targeted with pre-signed URLS and used as input for the API.
+Some form of user-owned storage (like Amazon S3 buckets) is necessary with these audio and video APIs. Media files (audio or video) and edited transcripts kept in your storage are targeted with pre-signed URLs and used as input for the API.
 
 Learn how to set up your files in these storage solutions to use with the API:
 
@@ -21,7 +21,7 @@ Learn how to set up your files in these storage solutions to use with the API:
   4. Drag and drop the media file (audio/video) or edited transcript file that you want to provide to the API in the bucket you've created.
   5. Once the upload is complete, select the file and go to **Actions**.
   6. Select the **Share with pre-signed URL** option and enter a duration for the pre-signed URL to be valid.
-  7. Copy the generated pre-signed URL to use in the API (it may also be copied automatically when you create it).
+  7. Copy the generated pre-signed URL to use in the API (it may also copy automatically when you create it).
 
 ## Using an Frame.io account
 

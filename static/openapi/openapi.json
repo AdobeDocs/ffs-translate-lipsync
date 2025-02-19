@@ -3,7 +3,8 @@
   "info" : {
     "version" : "",
     "title" : "Dubbing and Lip Sync API",
-    "description" : "This RESTful API offers dubbing and lip sync resources for enterprise use. With this API an audio or video input can be dubbed to new language(s)."
+    "description" : "This RESTful API offers dubbing and lip sync resources for enterprise use. With this API an audio or video input can be dubbed to new language(s).",
+    "termsOfService" : "https://www.adobe.com/content/dam/cc/en/legal/terms/enterprise/pdfs/PSLT-AdobeCreativeAPI-WW-2024v2.pdf"
   },
   "servers" : [ {
     "url" : "https://audio-video-api.adobe.io",
@@ -20,7 +21,7 @@
     "/v1/dub" : {
       "post" : {
         "summary" : "Dub audio or video",
-        "description" : "Generate dubbed video or audio.<br></br> A composited lip sync can be used for video dubbing.",
+        "description" : "Generate dubbed video or audio.<br></br> A composited lip sync can be added for video dubbing.",
         "operationId" : "dub",
         "requestBody" : {
           "description" : "The dub request body is used to specify either an audio dubbing or a video dubbing.",

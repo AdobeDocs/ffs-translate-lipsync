@@ -20,9 +20,9 @@ On this page you'll find what's currently supported, known limitations and worka
 
 ## For editing transcripts
 
-Only sentence editing is currently supported. Please do not modify the timestamps.
+Only sentence editing is currently supported. Please don't modify the timestamps.
 
-Speakers can be updated, however do not remove speakers before dubbing. Also, dub using the edited transcripts in different target languages.
+Speakers can be updated, however don't remove speakers before dubbing. Also, dub using the edited transcripts in different target languages.
 
 ## Language support
 
