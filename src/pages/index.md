@@ -30,7 +30,7 @@ Supported workflows include:
 
 <DiscoverBlock slots="heading, link, text"/>
 
-### Current features
+### Current services
 
 [Dub API](./api/index.md)
 
