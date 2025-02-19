@@ -4,7 +4,7 @@ description: This page is a quickstart guide for the ADLS Get Result API.
 ---
 # Get Result API
 
-Quickstart commands to see the result of an async dub job.
+Quickstart commands to see the result of an asynchronous dub job.
 
 ## Before you start
 
@@ -91,7 +91,7 @@ If the status is `succeeded`, you'll see the result for the operation in a respo
 
 ## Verify the content credentials
 
-To address concerns around content legitimacy, these content authentication steps should be used for AI-generated assets.
+To address concerns around content legitimacy, use these content authentication steps for AI-generated assets.
 
 1. Download the final output video/audio from the pre-signed URL in the successful response.
 2. Upload the file to the [Content Credentials website](https://contentcredentials.org/verify) to check the credentials.

@@ -16,9 +16,9 @@ Use ADLS to create audio or video dubs.
 
 ## Overview
 
-The Dubbing and Lip Sync (ADLS) API is a resource that allows you to use transcriptions to generate audio and video with precise, accurate dubbing and composited lip sync. This feature supports multi-speaker scenarios.
+The Dubbing and Lip Sync (ADLS) API uses transcriptions to generate audio and video with precise, accurate dubbing and composited lip sync. This feature supports multi-speaker scenarios.
 
-There are three supported workflows:
+Supported workflows include:
 
 1. **Automated Dubbing** for audio and video.
 2. **Dubbing with edited transcripts**.
@@ -34,12 +34,12 @@ There are three supported workflows:
 
 [Dub API](./api/index.md)
 
-Use audio and video voice transriptions to produce high-quality dubs, regardless of background noise and music.
+Use audio and video voice transcriptions to produce high-quality dubs, regardless of background noise and music.
 
 <DiscoverBlock slots="link, text"/>
 
 [Get Result API](./api/index.md)
 
-See the result for an async dubbing or transcribe job.
+See the result for an asynchronous dubbing or transcribe job.
 
-[Check out the Getting Started page](./getting_started/) when you're ready to set up your project, obtain and authenticate your credentials, and learn to build efficient workflows by chaining API calls across these endpoints.
+[Check out the Getting Started page](./getting_started/) when you're ready to set up your project, authenticate your credentials, and learn to build efficient workflows by chaining API calls across these endpoints.

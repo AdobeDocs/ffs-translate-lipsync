@@ -13,11 +13,11 @@ Quickstart commands to dub audio or video with a target language or edited trans
 
 ## Quickstart commands
 
-In the commands below, be sure to:
+In the commands below:
 
 - Update the `Authorization` with the bearer access token.
 - Update `x-api-key` with the client ID.
-- Update `url` with the generated pre-signed url for your input file.
+- Update `url` with the generated pre-signed URL for your input file.
 
 You can try these curl requests directly in your terminal. Or you can use an HTTP client like [Postman](https://www.postman.com/).
 
