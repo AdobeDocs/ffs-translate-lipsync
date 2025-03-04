@@ -32,6 +32,12 @@ Supported workflows include:
 
 ### Discover
 
+[Transcribe API](./api/index.md)
+
+Generate transcripts for the input audio or video.
+
+<DiscoverBlock slots="link, text"/>
+
 [Dub API](./api/index.md)
 
 Use audio and video voice transcriptions to produce high-quality dubs, regardless of background noise and music.
