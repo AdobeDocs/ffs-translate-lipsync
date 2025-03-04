@@ -18,6 +18,226 @@
     "X-Api-Key" : [ ]
   } ],
   "paths" : {
+    "/v1/transcribe" : {
+      "post" : {
+        "summary" : "Transcribe media",
+        "description" : "Generates transcripts for the input audio or video.",
+        "operationId" : "transcribe",
+        "requestBody" : {
+          "description" : "Transcribe request body.",
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TranscribeRequest"
+              },
+              "examples" : {
+                "AudioInputToGenerateTranscriptFromSourceAudio" : {
+                  "$ref" : "#/components/examples/AudioInputToGenerateTranscriptFromSourceAudio"
+                },
+                "AudioInputToGenerateTranscriptFromTargetLanguageAudio" : {
+                  "$ref" : "#/components/examples/AudioInputToGenerateTranscriptFromTargetLanguageAudio"
+                },
+                "VideoInputToGenerateTranscriptFromSourceVideo" : {
+                  "$ref" : "#/components/examples/VideoInputToGenerateTranscriptFromSourceVideo"
+                },
+                "VideoInputToGenerateTranscriptFromTargetLanguageVideo" : {
+                  "$ref" : "#/components/examples/VideoInputToGenerateTranscriptFromTargetLanguageVideo"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "202" : {
+            "description" : "Accepted",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/JobStatusLinkResponse"
+                },
+                "examples" : {
+                  "TranscribeResponse" : {
+                    "$ref" : "#/components/examples/JobStatusLinkResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorBody"
+                },
+                "examples" : {
+                  "ErrorBodyBadRequest" : {
+                    "$ref" : "#/components/examples/ErrorBodyBadRequest"
+                  }
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorBody"
+                },
+                "examples" : {
+                  "ErrorBodyUnauthorized" : {
+                    "$ref" : "#/components/examples/ErrorBodyUnauthorized"
+                  }
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorBody"
+                },
+                "examples" : {
+                  "ErrorBodyForbidden" : {
+                    "$ref" : "#/components/examples/ErrorBodyForbidden"
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource Not Found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorBody"
+                },
+                "examples" : {
+                  "ErrorBodyResourceNotFound" : {
+                    "$ref" : "#/components/examples/ErrorBodyResourceNotFound"
+                  }
+                }
+              }
+            }
+          },
+          "405" : {
+            "description" : "Method Not Allowed",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorBody"
+                },
+                "examples" : {
+                  "ErrorBodyMethodNotAllowed" : {
+                    "$ref" : "#/components/examples/ErrorBodyMethodNotAllowed"
+                  }
+                }
+              }
+            }
+          },
+          "422" : {
+            "description" : "Unprocessable Entity",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorBody"
+                },
+                "examples" : {
+                  "ErrorBodyMethodNotAllowed" : {
+                    "$ref" : "#/components/examples/ErrorBodyMethodNotAllowed"
+                  },
+                  "ValidationErrorVideoSourceBlank" : {
+                    "$ref" : "#/components/examples/ValidationErrorVideoSourceBlank"
+                  },
+                  "ValidationErrorAudioSourceBlank" : {
+                    "$ref" : "#/components/examples/ValidationErrorAudioSourceBlank"
+                  },
+                  "ValidationErrorInputSourceBlank" : {
+                    "$ref" : "#/components/examples/ValidationErrorInputSourceBlank"
+                  },
+                  "ValidationErrorVideoAndAudioSimultaneous" : {
+                    "$ref" : "#/components/examples/ValidationErrorVideoAndAudioSimultaneous"
+                  },
+                  "ValidationErrorVideoInputMediaTypeMissing" : {
+                    "$ref" : "#/components/examples/ValidationErrorVideoInputMediaTypeMissing"
+                  },
+                  "ValidationErrorAudioInputMediaTypeMissing" : {
+                    "$ref" : "#/components/examples/ValidationErrorAudioInputMediaTypeMissing"
+                  },
+                  "ValidationErrorSourceUrlEmpty" : {
+                    "$ref" : "#/components/examples/ValidationErrorSourceUrlEmpty"
+                  },
+                  "ValidationErrorInvalidVideoAudioSourceUrl" : {
+                    "$ref" : "#/components/examples/ValidationErrorInvalidVideoAudioSourceUrl"
+                  },
+                  "ValidationErrorBlankTranscriptSourceField" : {
+                    "$ref" : "#/components/examples/ValidationErrorBlankTranscriptSourceField"
+                  },
+                  "ValidationErrorInvalidTranscriptUrl" : {
+                    "$ref" : "#/components/examples/ValidationErrorInvalidTranscriptUrl"
+                  },
+                  "ValidationErrorUnsupportedVideoMediaType" : {
+                    "$ref" : "#/components/examples/ValidationErrorUnsupportedVideoMediaType"
+                  },
+                  "ValidationErrorUnsupportedAudioMediaType" : {
+                    "$ref" : "#/components/examples/ValidationErrorUnsupportedAudioMediaType"
+                  },
+                  "ValidationErrorUnsupportedTargetLocaleCode" : {
+                    "$ref" : "#/components/examples/ValidationErrorUnsupportedTargetLocaleCode"
+                  },
+                  "ValidationErrorBlankTargetLocaleCode" : {
+                    "$ref" : "#/components/examples/ValidationErrorBlankTargetLocaleCode"
+                  },
+                  "ValidationErrorMissingTargetLocaleCode" : {
+                    "$ref" : "#/components/examples/ValidationErrorMissingTargetLocaleCode"
+                  },
+                  "ValidationErrorLocaleCodeNotRequiredForEditedTranscript" : {
+                    "$ref" : "#/components/examples/ValidationErrorLocaleCodeNotRequiredForEditedTranscript"
+                  },
+                  "ValidationErrorEitherTargetLocaleCodesOrTranscriptionRequired" : {
+                    "$ref" : "#/components/examples/ValidationErrorEitherTargetLocaleCodesOrTranscriptionRequired"
+                  }
+                }
+              }
+            }
+          },
+          "429" : {
+            "description" : "Too many requests",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorBody"
+                },
+                "examples" : {
+                  "ErrorBodyTooManyRequests" : {
+                    "$ref" : "#/components/examples/ErrorBodyTooManyRequests"
+                  }
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorBody"
+                },
+                "examples" : {
+                  "ErrorBodyInternalServerError" : {
+                    "$ref" : "#/components/examples/ErrorBodyInternalServerError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/dub" : {
       "post" : {
         "summary" : "Dub audio or video",
@@ -392,7 +612,7 @@
             }
           },
           "404" : {
-            "description" : "Resource not found",
+            "description" : "Resource Not Found",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -662,7 +882,7 @@
             "items" : {
               "$ref" : "#/components/schemas/DubTargetLocaleCodes"
             },
-           "description" : "Accepted values: [ 'da-DK','en-IN','en-GB','es-AR', 'es-419','fr-CA','hi-IN','ja-JP','ko-KR','nb-NO','nl-NL','pt-BR','sv-SE','zh-CN','en-US','es-ES','de-DE','fr-FR','it-IT','pt-PT']"
+            "description" : "Accepted values: [ 'da-DK','en-IN','en-GB','es-AR', 'es-419','fr-CA','hi-IN','ja-JP','ko-KR','nb-NO','nl-NL','pt-BR','sv-SE','zh-CN','en-US','es-ES','de-DE','fr-FR','it-IT','pt-PT']"
           },
           "transcripts" : {
             "type" : "array",
