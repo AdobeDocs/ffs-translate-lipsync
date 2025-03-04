@@ -18,7 +18,7 @@
     "X-Api-Key" : [ ]
   } ],
   "paths" : {
-    "/beta/transcribe" : {
+    "/v1/transcribe" : {
       "post" : {
         "summary" : "Transcribe media",
         "description" : "Generates transcripts for the input audio or video.",
