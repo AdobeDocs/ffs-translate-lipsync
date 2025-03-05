@@ -38,6 +38,29 @@ The status of the job can be:
 
 If the status is `succeeded`, you'll see the result for the operation in a response like the example below:
 
+**Transcribe job response example**
+
+```bash
+{
+    "jobId": "500de496-4961-4641-a273-1c760ee7e0b4",
+    "status": "succeeded",
+    "outputs": [
+        {
+            "destination": {
+                "url": "https://auto-dubbing-stage-ue1.s3-accelerate.amazonaws.com/500de496-4961-4641-a273-1c760ee7e0b4/translation_de_DE.txt?response-content-disposition=attachment&AWSAccessKeyId==********************&Signature=Jfx%2F%2FL1GJqHjrWHVph0FcxoqpJs%3D&Expires=1725446894"
+            },
+            "localeCode": "de-DE"
+        },
+        {
+            "destination": {
+                "url": "https://auto-dubbing-stage-ue1.s3-accelerate.amazonaws.com/500de496-4961-4641-a273-1c760ee7e0b4/translation_es_sp.txt?response-content-disposition=attachment&AWSAccessKeyId==********************&Signature=FA5OF%2BXKZhnvmUcKHGAYkbhGpDs%3D&Expires=1725446894"
+            },
+            "localeCode": "es-ES"
+        }
+    ]
+}
+```
+
 **Dub job response example**
 
 ```bash
