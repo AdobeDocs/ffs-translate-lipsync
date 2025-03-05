@@ -63,9 +63,9 @@ curl --location 'https://audio-video-api.adobe.io/v1/transcribe' \
 
 ```bash
 curl --location 'https://audio-video-api.adobe.io/v1/transcribe' \
---header 'Authorization: Bearer <<Token>>' \
+--header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
---header 'x-api-key: <<Client-ID>>' \
+--header 'x-api-key: {ClientID}' \
 --data '{
   "video": {
     "source": {
@@ -105,9 +105,9 @@ curl --location 'https://audio-video-api.adobe.io/v1/transcribe' \
 
 ```bash
 curl --location 'https://audio-video-api.adobe.io/v1/transcribe' \
---header 'Authorization: Bearer <<Token>>' \
+--header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
---header 'x-api-key: <<Client-ID>>' \
+--header 'x-api-key: {ClientID}' \
 --data '{
   "video": {
     "source": {
