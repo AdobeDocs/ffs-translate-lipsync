@@ -13,60 +13,20 @@ Quickstart commands to create a transcription from audio or video files.
 
 ## Quickstart commands
 
-In the commands below, be sure to:
+In the commands below:
 
 - Update the `Authorization` with the bearer access token.
 - Update `x-api-key` with the client ID.
-- Update `url` with the generated pre-signed url for your input file.
+- Update `url` with the generated pre-signed URL for your input file.
 
 You can try these curl requests directly in your terminal. Or you can use an HTTP client like [Postman](https://www.postman.com/).
 
-### Transcribe audio with source language output
+### Transcribe with source language output
+
+#### Transcribe video with source language output
 
 ```bash
-curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
---header 'Authorization: Bearer {AccessToken}' \
---header 'Content-Type: application/json' \
---header 'x-api-key: {ClientID}' \
---data '{
-  "audio": {
-    "source": {
-         "url" : "{Presigned_URL}"
-    },
-    "mediaType": "audio/mp3"
-  }
-}'
-```
-
-### Transcribe audio with target language output
-
-```bash
-curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
---header 'Authorization: Bearer {AccessToken}' \
---header 'Content-Type: application/json' \
---header 'x-api-key: {ClientID}' \
---data '{
-  "audio": {
-    "source": {
-         "url" : "{Presigned_URL}"
-    },
-    "mediaType": "audio/mp3"
-  },
-    "targetLocaleCodes": [
-        "en-US",
-        "es-ES",
-        "de-DE",
-        "fr-FR",
-        "it-IT",
-        "pt-PT"
-    ]
-}'
-```
-
-### Transcribe video with source language output
-
-```bash
-curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
+curl --location 'https://audio-video-api.adobe.io/v1/transcribe' \
 --header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
 --header 'x-api-key: {ClientID}' \
@@ -80,28 +40,108 @@ curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
 }'
 ```
 
-### Transcribe video with target language output
+#### Transcribe audio with source language output
 
 ```bash
-curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
+curl --location 'https://audio-video-api.adobe.io/v1/transcribe' \
+--header 'Authorization: Bearer {AccessToken}' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: {ClientID}' \
+--data '{
+  "audio": {
+    "source": {
+         "url" : "{Presigned_URL}"
+    },
+    "mediaType": "audio/mp3"
+  }
+}'
+```
+
+### Transcribe with target language output
+
+#### Transcribe video with target language output
+
+```bash
+curl --location 'https://audio-video-api.adobe.io/v1/transcribe' \
 --header 'Authorization: Bearer <<Token>>' \
 --header 'Content-Type: application/json' \
 --header 'x-api-key: <<Client-ID>>' \
 --data '{
   "video": {
     "source": {
-         "url" : "<<Replace with the presigned URL of the input video file>>"
+         "url" : "{Presigned_URL}"
     },
     "mediaType": "video/mp4"
   },
-   "targetLocaleCodes": [
-        "en-US",
-        "es-ES",
-        "de-DE",
-        "fr-FR",
-        "it-IT",
-        "pt-PT"
+  "targetLocaleCodes": [
+    "{targetLocaleCode}"
+  ]
+}'
+```
+
+#### Transcribe audio with target language output
+
+```bash
+curl --location 'https://audio-video-api.adobe.io/v1/transcribe' \
+--header 'Authorization: Bearer {AccessToken}' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: {ClientID}' \
+--data '{
+  "audio": {
+    "source": {
+         "url" : "{Presigned_URL}"
+    },
+    "mediaType": "audio/mp3"
+  },
+  "targetLocaleCodes": [
+    "{targetLocaleCode}"
+  ]
+}'
+```
+
+### Transcribe and generate captions with source language output
+
+#### Transcribe and generate captions for video with source language output
+
+```bash
+curl --location 'https://audio-video-api.adobe.io/v1/transcribe' \
+--header 'Authorization: Bearer <<Token>>' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <<Client-ID>>' \
+--data '{
+  "video": {
+    "source": {
+         "url" : "{Presigned_URL}"
+    },
+    "mediaType": "video/mp4"
+  },
+  "captions": {
+    "targetFormats": [
+      "{targetCaptionFormat}"
     ]
+  }
+}'
+```
+
+#### Transcribe and generate captions for audio with source language output
+
+```bash
+curl --location 'https://audio-video-api.adobe.io/v1/transcribe' \
+--header 'Authorization: Bearer {AccessToken}' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: {ClientID}' \
+--data '{
+  "audio": {
+    "source": {
+         "url" : "{Presigned_URL}"
+    },
+    "mediaType": "audio/mp3"
+  },
+  "captions": {
+    "targetFormats": [
+      "{targetCaptionFormat}"
+    ]
+  }
 }'
 ```
 
