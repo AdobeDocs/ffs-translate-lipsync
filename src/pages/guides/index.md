@@ -1,10 +1,10 @@
 ---
-title: Dub API Quickstart
-description: This page is a quickstart guide for the ADLS Dub API.
+title: Transcribe API Quickstart
+description: This page is a quickstart guide for the ADLS Transcribe API.
 ---
-# Dub API
+# Transcribe API
 
-Quickstart commands to dub audio or video with a target language or edited transcript.
+Quickstart commands to create a transcription from audio or video files.
 
 ## Before you start
 
@@ -13,185 +13,95 @@ Quickstart commands to dub audio or video with a target language or edited trans
 
 ## Quickstart commands
 
-In the commands below:
+In the commands below, be sure to:
 
 - Update the `Authorization` with the bearer access token.
 - Update `x-api-key` with the client ID.
-- Update `url` with the generated pre-signed URL for your input file.
+- Update `url` with the generated pre-signed url for your input file.
 
 You can try these curl requests directly in your terminal. Or you can use an HTTP client like [Postman](https://www.postman.com/).
 
-### Automated dubbing
-
-You'll need to pass `targetLocaleCodes` in these commands.
-
-#### Automated dubbing for video
+### Transcribe audio with source language output
 
 ```bash
-curl --location 'https://audio-video-api.adobe.io/v1/dub' \
---header 'Authorization: Bearer {AccessToken}' \
---header 'Content-Type: application/json' \
---header 'x-api-key: {ClientID}' \
---data '{
-  "video": {
-    "source": {
-        "url": "{Presigned_URL}"
-    },
-    "mediaType": "video/mp4"
-  },
-  "targetLocaleCodes": [
-    "{targetLocaleCode}"
-  ],
-  "lipSync": "false"
-}'
- ```
-
-#### Automated dubbing for audio
-
-```bash
-curl --location 'https://audio-video-api.adobe.io/v1/dub' \
+curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
 --header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
 --header 'x-api-key: {ClientID}' \
 --data '{
   "audio": {
     "source": {
-        "url": "{Presigned_URL}"
-      },
-      "mediaType": "audio/mp3"
+         "url" : "{Presigned_URL}"
     },
+    "mediaType": "audio/mp3"
+  }
+}'
+```
+
+### Transcribe audio with target language output
+
+```bash
+curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
+--header 'Authorization: Bearer {AccessToken}' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: {ClientID}' \
+--data '{
+  "audio": {
+    "source": {
+         "url" : "{Presigned_URL}"
+    },
+    "mediaType": "audio/mp3"
+  },
     "targetLocaleCodes": [
-      "{targetLocaleCode}"
-    ],
-    "lipSync": "false"
+        "en-US",
+        "es-ES",
+        "de-DE",
+        "fr-FR",
+        "it-IT",
+        "pt-PT"
+    ]
 }'
 ```
 
-### Dubbing with edited transcript
-
-You'll need to pass the `targetLocaleCodes` and edited transcripts in these commands. The `transcripts` should contain **only one value** with the URL for the edited transcript.
-
-#### Dubbing with edited translations for video
+### Transcribe video with source language output
 
 ```bash
-curl --location 'https://audio-video-api.adobe.io/v1/dub' \
+curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
 --header 'Authorization: Bearer {AccessToken}' \
 --header 'Content-Type: application/json' \
 --header 'x-api-key: {ClientID}' \
 --data '{
   "video": {
     "source": {
-      "url": "{Presigned_URL}"
+         "url" : "{Presigned_URL}"
     },
     "mediaType": "video/mp4"
-  },
-  "transcripts": [
-    {
-      "source": {
-        "url": "{Transcript_Presigned_URL}"
-      }
-    }
-  ],
-  "targetLocaleCodes": [
-    "{targetLocaleCode}"
-  ],
-  "lipSync": "false"
+  }
 }'
 ```
 
-#### Dubbing with edited translations for audio
+### Transcribe video with target language output
 
 ```bash
-curl --location 'https://audio-video-api.adobe.io/v1/dub' \
---header 'Authorization: Bearer {AccessToken}' \
+curl --location 'https://audio-video-api.adobe.io/beta/transcribe' \
+--header 'Authorization: Bearer <<Token>>' \
 --header 'Content-Type: application/json' \
---header 'x-api-key: {ClientID}' \
---data '{
-  "audio": {
-    "source": {
-      "url": "{Presigned_URL}"
-    },
-    "mediaType": "audio/mp3"
-  },
-  "transcripts": [
-    {
-      "source": {
-        "url": "{Transcript_Presigned_URL}"
-      }
-    }
-  ],
-  "targetLocaleCodes": [
-    "{targetLocaleCode}"
-  ],
-  "lipSync": "false"
-}'
-```
-
-### Dubbing with pre-existing translations
-
-You need to pass `transcripts` along with `localeCode` in this case. Each value of `transcripts` contains the URL to download the transcript AND the locale code for the same.
-
-#### Dubbing with pre-existing translations for video
-
-```bash
-curl --location 'https://audio-video-api.adobe.io/v1/dub' \
---header 'Authorization: Bearer {AccessToken}' \
---header 'Content-Type: application/json' \
---header 'x-api-key: {ClientID}' \
+--header 'x-api-key: <<Client-ID>>' \
 --data '{
   "video": {
     "source": {
-        "url": "{Presigned_URL}"
+         "url" : "<<Replace with the presigned URL of the input video file>>"
     },
     "mediaType": "video/mp4"
   },
-  "transcripts": [
-    {
-        "source": {
-            "url": "{Transcript_Presigned_URL_de-DE}"
-        },
-        "localeCode": "de-DE"
-    },
-    {
-        "source": {
-            "url": "{Transcript_Presigned_URL_en-US}"
-        },
-        "localeCode": "en-US"
-    }
-  ],
-  "lipSync": "false"
-}'
-```
-
-#### Dubbing with pre-existing translations for audio
-
-```bash
-curl --location 'https://audio-video-api.adobe.io/v1/dub' \
---header 'Authorization: Bearer {AccessToken}' \
---header 'Content-Type: application/json' \
---header 'x-api-key: {ClientID}' \
---data '{
-  "audio": {
-    "source": {
-      "url": "{Presigned_URL}"
-    },
-    "mediaType": "audio/mp3"
-  },
-  "transcripts": [
-    {
-      "source": {
-        "url": "{Transcript_Presigned_URL_de-DE}"
-      },
-      "localeCode": "de-DE"
-    },
-    {
-      "source": {
-        "url": "{Transcript_Presigned_URL_en-US}"
-      },
-      "localeCode": "en-US"
-    }
-  ],
-  "lipSync": "false"
+   "targetLocaleCodes": [
+        "en-US",
+        "es-ES",
+        "de-DE",
+        "fr-FR",
+        "it-IT",
+        "pt-PT"
+    ]
 }'
 ```
 
