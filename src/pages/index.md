@@ -20,9 +20,11 @@ The Dubbing and Lip Sync (ADLS) API uses transcriptions to generate audio and vi
 
 Supported workflows include:
 
-1. **Automated Dubbing** for audio and video.
-2. **Dubbing with edited transcripts**.
-3. **Dubbing with pre-existing translations**.
+1. **Transcribe** audio and video.
+2. **Generate captions** for audio and video.
+3. **Automated Dubbing** for audio and video.
+4. **Dubbing with edited transcripts**.
+5. **Dubbing with pre-existing translations**.
 
 **Lip Sync** is also included as a parameter of the Dub API to create high-quality composited videos with precise lip-syncing.
 
