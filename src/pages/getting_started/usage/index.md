@@ -81,6 +81,8 @@ These usage limits apply to your entire organization. <br/>
 
 The current limitations are:
 
+**Transcribe endpoint:** 5 requests per minute.
+
 **Dubbing/Lip Sync endpoint:**  5 requests per minute and 150 requests per day.
 
 **Get Result endpoint:** 100 requests per minute.
