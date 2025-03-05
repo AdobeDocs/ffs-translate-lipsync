@@ -43,6 +43,12 @@
                 },
                 "VideoInputToGenerateTranscriptFromTargetLanguageVideo" : {
                   "$ref" : "#/components/examples/VideoInputToGenerateTranscriptFromTargetLanguageVideo"
+                },
+                "AudioInputToGenerateTranscriptAndCaptionsFromTargetFormatsFromSourceAudio" : {
+                  "$ref" : "#/components/examples/AudioInputToGenerateTranscriptAndCaptionsFromTargetFormatsFromSourceAudio"
+                },
+                "VideoInputToGenerateTranscriptAndCaptionsFromTargetFormatsFromSourceVideo" : {
+                  "$ref" : "#/components/examples/VideoInputToGenerateTranscriptAndCaptionsFromTargetFormatsFromSourceVideo"
                 }
               }
             }
@@ -200,6 +206,9 @@
                   },
                   "ValidationErrorEitherTargetLocaleCodesOrTranscriptionRequired" : {
                     "$ref" : "#/components/examples/ValidationErrorEitherTargetLocaleCodesOrTranscriptionRequired"
+                  },
+                  "ValidationErrorCaptionGenerationNotSupportedWithTranslation" : {
+                    "$ref" : "#/components/examples/ValidationErrorCaptionGenerationNotSupportedWithTranslation"
                   }
                 }
               }
@@ -215,6 +224,21 @@
                 "examples" : {
                   "ErrorBodyTooManyRequests" : {
                     "$ref" : "#/components/examples/ErrorBodyTooManyRequests"
+                  }
+                }
+              }
+            }
+          },
+          "451" : {
+            "description" : "Unauthorized due to legal reasons",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorBody"
+                },
+                "examples" : {
+                  "ErrorBodyLegalReasons" : {
+                    "$ref" : "#/components/examples/ErrorBodyLegalReasons"
                   }
                 }
               }
