@@ -14,6 +14,12 @@ Server-to-server authentication credentials let your application's server genera
 
 ## Access tokens
 
+<InlineAlert variant="warning" slots="header, text" />
+
+Tokens for ADLS need additional scopes
+
+ADLS tokens can be generated but MAY NOT BE VALID without two cards included on your developer console project. To authenticate the ADLS API, add another API from the Firefly services family to your project on the Adobe developer console.
+
 Each access token is valid for 24 hours. To adhere to OAuth best practices, you should generate a new token every 23 hours.
 
 Access tokens can be generated programmatically by sending a `POST` request to the following endpoint:
