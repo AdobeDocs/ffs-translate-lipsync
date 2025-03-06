@@ -57,8 +57,12 @@ module.exports = {
         header: true,
         pages: [
           {
-            title: 'Dub API Quickstart',
+            title: 'Transcribe API Quickstart',
             path: '/guides/'
+          },
+          {
+            title: 'Dub API Quickstart',
+            path: '/guides/dub_quickstart.md'
           },
           {
             title: 'Get Result API Quickstart',
