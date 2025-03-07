@@ -14,9 +14,10 @@ On this page you'll find what's currently supported, known limitations and worka
 
 ## Known limitations and workarounds
 
-- **Speaker Mismatch:** Speaker mismatches or additional/missing speakers may occasionally occur in output transcripts. This has been observed in approximately 9% of cases.
+- **Speaker Mismatch:** Speaker mismatches or additional/missing speakers may occasionally occur in output transcripts. This has been observed in approximately 9% of cases. Content where speakers overlap may not produce the best results and should be avoided.
 - **Voice Modulation:** Voices in the output may vary in pitch or show significant modulation. Regenerating the video/audio can often resolve this issue.
 - **Re-dubbing Dubbed Content:** Avoid using deepfake content for re-dubbing purposes.
+- **Singing Isn't Supported:** A music video or a song will not be dubbed correctly.
 
 ## For editing transcripts
 
