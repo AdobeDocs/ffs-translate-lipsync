@@ -15,6 +15,10 @@ module.exports = {
   siteMetadata: {
     pages: [
       {
+        title: 'Firefly Services',
+        path: 'https://developer.adobe.com/firefly-services/docs/guides/'
+      },
+      {
         title: 'Overview',
         path: '/'
       },
