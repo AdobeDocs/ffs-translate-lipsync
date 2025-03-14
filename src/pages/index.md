@@ -1,6 +1,6 @@
 ---
-title: Adobe Dubbing and Lip Sync (ADLS) Overview
-description: This is the overview page for the Adobe Dubbing and Lip Sync (ADLS) APIs.
+title: Adobe Translate and Lip Sync (TLS) Overview
+description: This is the overview page for the Adobe Translate and Lip Sync (TLS) APIs.
 contributors:
   - https://github.com/fly0102030405
   - https://github.com/BaskarMitrah
@@ -10,13 +10,13 @@ import "../styles/main.css";
 
 <Hero slots="heading, text" background="rgb(233, 80, 80)" className="adls-header"/>
 
-# Adobe Dubbing and Lip Sync (ADLS) APIs
+# Adobe Translate and Lip Sync (TLS) APIs
 
-Use ADLS to create audio or video dubs.
+Dub audio or video with optional lip syncing.
 
 ## Overview
 
-The Dubbing and Lip Sync (ADLS) API uses transcriptions to generate audio and video with precise, accurate dubbing and composited lip sync. This feature supports multi-speaker scenarios.
+The Translate and Lip Sync (TLS) API uses transcriptions to generate audio and video with precise, accurate dubbing and composited lip sync. This feature supports multi-speaker scenarios.
 
 Supported workflows include:
 

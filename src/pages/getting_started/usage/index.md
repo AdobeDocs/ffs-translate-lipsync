@@ -1,6 +1,6 @@
 ---
-title: ADLS API Usage Notes
-description: This is a guide explaining limitations, workarounds, and current support for the ADLS API.
+title: TLS API Usage Notes
+description: This is a guide explaining limitations, workarounds, and current support for the TLS API.
 contributors:
   - https://github.com/fly0102030405
   - https://github.com/BaskarMitrah
@@ -10,18 +10,18 @@ import "../../../styles/main.css";
 
 # Video Services API Usage Notes
 
-On this page you'll find what's currently supported, known limitations and workarounds, and the current usage limits set for the Adobe Dubbing and Lip Sync (ADLS) API.
+Here you'll find what's currently supported, known limitations and workarounds, and the current usage limits for Adobe's Translate and Lip Sync (TLS) API.
 
 ## Known limitations and workarounds
 
 - **Speaker Mismatch:** Speaker mismatches or additional/missing speakers may occasionally occur in output transcripts. This has been observed in approximately 9% of cases. Content where speakers overlap may not produce the best results and should be avoided.
 - **Voice Modulation:** Voices in the output may vary in pitch or show significant modulation. Regenerating the video/audio can often resolve this issue.
 - **Re-dubbing Dubbed Content:** Avoid using deepfake content for re-dubbing purposes.
-- **Singing Isn't Supported:** A music video or a song will not be dubbed correctly.
+- **Singing Isn't Supported:** A music video or a song won't be dubbed correctly.
 
 ## For editing transcripts
 
-Only sentence editing is currently supported. Please don't modify the timestamps.
+Only sentence editing is currently supported. Do not modify the timestamps.
 
 Speakers can be updated, however don't remove speakers before dubbing. Also, dub using the edited transcripts in different target languages.
 

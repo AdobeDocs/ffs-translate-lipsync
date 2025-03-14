@@ -1,6 +1,6 @@
 ---
 title: Transcribe API Quickstart
-description: This page is a quickstart guide for the ADLS Transcribe API.
+description: This page is a quickstart guide for the TLS Transcribe API.
 ---
 # Transcribe API
 

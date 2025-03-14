@@ -1,6 +1,6 @@
 ---
 title: Get Result API Quickstart
-description: This page is a quickstart guide for the ADLS Get Result API.
+description: This page is a quickstart guide for the TLS Get Result API.
 ---
 # Get Result API
 
@@ -15,7 +15,7 @@ Quickstart commands to see the result of an asynchronous dub job.
 
 In the command, be sure to:
 
--  Update `jobId` with the ID returned in the response for the ADLS job.
+-  Update `jobId` with the ID returned in the response for the job.
 -  Update the `Authorization` with the bearer access token.
 -  Update `x-api-key` with the client ID.
 

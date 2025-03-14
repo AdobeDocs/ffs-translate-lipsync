@@ -1,6 +1,6 @@
 ---
 title: Dub API Quickstart
-description: This page is a quickstart guide for the ADLS Dub API.
+description: This page is a quickstart guide for the TLS Dub API.
 ---
 # Dub API
 
